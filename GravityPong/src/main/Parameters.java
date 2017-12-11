@@ -32,6 +32,8 @@ public interface Parameters
 	
 	//Screen
 	static int    ScreenSleepTimeThread = 1;
+	static int    initScreenHeight=800;
+	static int    initScreenWidth=800;
 	
 	
 }

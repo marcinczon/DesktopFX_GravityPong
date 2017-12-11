@@ -28,17 +28,12 @@ public class Paddle implements Parameters, Objects
 	PaddleCalculationPositionY paddleCalculationPositionY;
 	
 	//Obiekty dla debugingu
-	
-	private Line LimitLeft = new Line();
-	private Line LimitRight = new Line();
-	private Line LimitUp = new Line();
-	private Line LimitDown = new Line();
-	
 	double PaddleLimitLeft = Paddle.getLayoutX();
 	double PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
 	
 	double PaddleLimitUp = Paddle.getLayoutY();
 	double PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+
 	
 	public Paddle()
 	{
@@ -50,11 +45,6 @@ public class Paddle implements Parameters, Objects
 		PosX=Paddle.getLayoutX();
 		PosY=Paddle.getLayoutY();
 		
-		//Linie do debuggingu
-		LimitLeft.setFill(Color.BLACK);
-		LimitRight.setFill(Color.BLACK);
-		LimitUp.setFill(Color.BLACK);
-		LimitDown.setFill(Color.BLACK);
 		
 		paddleCalculationPositionX = new PaddleCalculationPositionX(this, "Paddle Axis X");
 		paddleCalculationPositionY = new PaddleCalculationPositionY(this, "Paddle Axis Y");
@@ -77,6 +67,7 @@ public class Paddle implements Parameters, Objects
 		VxActual=paddleCalculationPositionX.getVxActual();
 		VyActual=paddleCalculationPositionY.getVyActual();
 		
+		SetLines();
 
 
 		Paddle.setLayoutX(PosX);
@@ -90,8 +81,7 @@ public class Paddle implements Parameters, Objects
 		//Limity do debuggingu
 		
 		PaddleLimitLeft = Paddle.getLayoutX();
-		PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
-		
+		PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();		
 		PaddleLimitUp = Paddle.getLayoutY();
 		PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
 		
@@ -115,10 +105,64 @@ public class Paddle implements Parameters, Objects
 		LimitDown.setStartY(PaddleLimitDown);
 		LimitDown.setEndY(PaddleLimitDown);
 		
+//		1  |	 2		| 3
+//		___|____________|___
+//	4   ___|____________|___  5
+//		   |            |
+//		6  |	7    	| 8
 		
+		ZoneRectangle_1.setLayoutX(0);
+		ZoneRectangle_1.setLayoutY(0);
+		ZoneRectangle_1.setWidth(PaddleLimitLeft);
+		ZoneRectangle_1.setHeight(PaddleLimitUp);		
 		
+		ZoneRectangle_2.setLayoutX(PaddleLimitLeft);
+		ZoneRectangle_2.setLayoutY(0);
+		ZoneRectangle_2.setWidth(getPaddleWidth());
+		ZoneRectangle_2.setHeight(PaddleLimitUp);
 		
+		ZoneRectangle_3.setLayoutX(PaddleLimitRight);
+		ZoneRectangle_3.setLayoutY(0);
+		ZoneRectangle_3.setWidth(primaryScene.getWidth());
+		ZoneRectangle_3.setHeight(PaddleLimitUp);
+		
+		ZoneRectangle_4.setLayoutX(0);
+		ZoneRectangle_4.setLayoutY(PaddleLimitUp);
+		ZoneRectangle_4.setWidth(PaddleLimitLeft);
+		ZoneRectangle_4.setHeight(getPaddleHeigh());
+		
+		ZoneRectangle_5.setLayoutX(getPosX()+getPaddleWidth());
+		ZoneRectangle_5.setLayoutY(PaddleLimitUp);
+		ZoneRectangle_5.setWidth(primaryScene.getWidth());
+		ZoneRectangle_5.setHeight(getPaddleHeigh());
+
+		ZoneRectangle_6.setLayoutX(0);
+		ZoneRectangle_6.setLayoutY(PaddleLimitDown);
+		ZoneRectangle_6.setWidth(PaddleLimitLeft);
+		ZoneRectangle_6.setHeight(primaryScene.getHeight());
+		
+		ZoneRectangle_7.setLayoutX(PaddleLimitLeft);
+		ZoneRectangle_7.setLayoutY(PaddleLimitDown);
+		ZoneRectangle_7.setWidth(getPaddleWidth());
+		ZoneRectangle_7.setHeight(primaryScene.getHeight());
+		
+		ZoneRectangle_8.setLayoutX(PaddleLimitRight);
+		ZoneRectangle_8.setLayoutY(PaddleLimitDown);
+		ZoneRectangle_8.setWidth(primaryScene.getWidth());
+		ZoneRectangle_8.setHeight(primaryScene.getHeight());		
+		
+		//ZoneRectangle_1.setFill(Color.TRANSPARENT);
+		ZoneRectangle_2.setFill(Color.TRANSPARENT);
+		ZoneRectangle_3.setFill(Color.TRANSPARENT);
+		ZoneRectangle_4.setFill(Color.TRANSPARENT);
+		ZoneRectangle_5.setFill(Color.TRANSPARENT);
+		ZoneRectangle_6.setFill(Color.TRANSPARENT);
+		ZoneRectangle_7.setFill(Color.TRANSPARENT);
+		ZoneRectangle_8.setFill(Color.TRANSPARENT);
+
 	}
+	
+	
 	
 
 //	***************
@@ -201,6 +245,15 @@ public class Paddle implements Parameters, Objects
 		Nodes.add(LimitRight);
 		Nodes.add(LimitUp);
 		Nodes.add(LimitDown);
+		
+		Nodes.add(ZoneRectangle_1);
+		Nodes.add(ZoneRectangle_2);
+		Nodes.add(ZoneRectangle_3);
+		Nodes.add(ZoneRectangle_4);
+		Nodes.add(ZoneRectangle_5);
+		Nodes.add(ZoneRectangle_6);
+		Nodes.add(ZoneRectangle_7);
+		Nodes.add(ZoneRectangle_8);
 		return Nodes;
 	}
 

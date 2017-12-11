@@ -144,6 +144,10 @@ public class Ball implements Parameters
 	{
 		return Weight;
 	}
+	public  double getRadius()
+	{
+		return Ball.getRadius();
+	}
 	public  void setWeight(double weight)
 	{
 		Weight = weight;

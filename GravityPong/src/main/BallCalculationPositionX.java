@@ -1,7 +1,7 @@
 package main;
 
 
-public class BallCalculationPositionX implements Runnable, Parameters
+public class BallCalculationPositionX implements Runnable, Parameters, Objects
 {
 	private  double deltaSx=0, Vx0=0,VxLost=0;
 	private  double PositionX=0;	
@@ -35,9 +35,9 @@ public class BallCalculationPositionX implements Runnable, Parameters
 		PositionX=PositionX+deltaSx;
 		
 		//Zderzenie ze scianami
-		if(PositionX>=Screen.primaryScene.getWidth())
+		if(PositionX>=primaryScene.getWidth())
 		{
-			PositionX=(int)Screen.primaryScene.getWidth();
+			PositionX=(int)primaryScene.getWidth();
 			Vx0=-(Vx0-VxLost);
 		}
 		if(PositionX<=0)

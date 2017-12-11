@@ -1,6 +1,6 @@
 package main;
 
-public class BallCalculationPositionY implements Runnable , Parameters
+public class BallCalculationPositionY implements Runnable , Parameters, Objects
 {
 	private  double t=0.05;
 	private  double deltaSy=0, Vy0=0,Vy1=0,VyLost=1,g=9.8;
@@ -39,9 +39,9 @@ public class BallCalculationPositionY implements Runnable , Parameters
 		PositionY=PositionY+deltaSy;
 		
 		//Zderzenie ze scianami
-		if(PositionY>=Screen.primaryScene.getHeight()-Radius)
+		if(PositionY>=primaryScene.getHeight()-Radius)
 		{
-			PositionY=(int)Screen.primaryScene.getHeight()-Radius;
+			PositionY=(int)primaryScene.getHeight()-Radius;
 			Vy0=-(Vy0-VyLost);
 		}
 		if(PositionY<=0)

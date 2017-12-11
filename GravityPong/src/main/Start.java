@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 //***
 
 
-public class Start extends Application
+public class Start extends Application implements Objects
 {
 	Screen _Screen = new Screen();
 	public static void main(String[] args)
@@ -27,7 +27,7 @@ public class Start extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
-		primaryStage.setScene(_Screen.getPrimaryScene());
+		primaryStage.setScene(primaryScene);
 		primaryStage.show();
 		
 	}
