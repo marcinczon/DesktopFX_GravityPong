@@ -124,37 +124,37 @@ public class CollisionDetection implements Objects
 			loopTrigger_1 = false;
 		}
 
-		collisionShape = Shape.intersect(TestBall_2.get_ball(), primaryPaddle.getPaddle());		
-		boolean intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
-		
-		if (!intersects_2)
-		{
-			if (!loopTrigger_2)
-			{
-				CollisionWithPeddle(TestBall_2,primaryPaddle);
-				loopTrigger_2 = true;
-			}
-		}
-		else
-		{
-			loopTrigger_2 = false;
-		}		
-		
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());					
-		boolean intersects_3 = collisionShape.getBoundsInLocal().isEmpty();
-		
-		if (!intersects_3)
-		{
-			if (!loopTrigger_3)
-			{			
-				CollisionTwoBall(TestBall_1,TestBall_2);	
-				//System.out.println("Balls Collision");
-				loopTrigger_3 = true;
-			}
-		} else
-		{
-			loopTrigger_3 = false;
-		}	
+//		collisionShape = Shape.intersect(TestBall_2.get_ball(), primaryPaddle.getPaddle());		
+//		boolean intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
+//		
+//		if (!intersects_2)
+//		{
+//			if (!loopTrigger_2)
+//			{
+//				CollisionWithPeddle(TestBall_2,primaryPaddle);
+//				loopTrigger_2 = true;
+//			}
+//		}
+//		else
+//		{
+//			loopTrigger_2 = false;
+//		}		
+//		
+//		collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());					
+//		boolean intersects_3 = collisionShape.getBoundsInLocal().isEmpty();
+//		
+//		if (!intersects_3)
+//		{
+//			if (!loopTrigger_3)
+//			{			
+//				CollisionTwoBall(TestBall_1,TestBall_2);	
+//				//System.out.println("Balls Collision");
+//				loopTrigger_3 = true;
+//			}
+//		} else
+//		{
+//			loopTrigger_3 = false;
+//		}	
 	}
 	
 	
@@ -219,20 +219,7 @@ public class CollisionDetection implements Objects
 		
 		
 // Nie sprezyste rownanie pêdu
-		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);
-		
-// Jezeli Pi³ka zderza siê od góry to równanie "nie sprezyste"
-// Jezeli Pi³ka zderza siê z boku to równanie sprezyste
-
-		
-		//Pozycja scian Paddle
-	
-		double PaddleLimitLeft = _Paddle.getPosX();
-		double PaddleLimitRight = _Paddle.getPosX()+_Paddle.getWeight();
-		
-		double PaddleUpLimit = _Paddle.getPosY();
-		double PaddleDownLimit = _Paddle.getBasePosY()+_Paddle.getPaddleHeigh();
-		
+		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);		
 		
 //		1  |	 2		| 3
 //		___|____________|___
@@ -240,139 +227,144 @@ public class CollisionDetection implements Objects
 //		   |            |
 //		6  |	7    	| 8
 		   
-		   
-		//Dla pol 1,2,3		
-//		if (_Ball.getPositionY() + _Ball.getRadius() >= PaddleUpLimit)
-//		{
-//			if (_Ball.getPositionX() + _Ball.getRadius() <= PaddleLimitLeft)
+		   //Rownania dla odpowiednich zderzeñ
+
+		if (_Ball.getBallNummer() == 1)
+		{
+//			if (zones.isIntersects_2() || zones.isIntersects_7())
 //			{
-//				System.out.println("Pole 1");
+//				_Ball.setVxActual(Vx);
+//				_Paddle.setVxActual(Vx);
 //			}
-//			else if(_Ball.getPositionX() - _Ball.getRadius() >= PaddleLimitRight)
-//			{
-//				System.out.println("Pole 3");
-//			}
-//			else
-//			{
-//				System.out.println("Pole 2");
-//			}			
-//		}
-
-		
-		//Jezeli uderza od góry czy od do³u nie sprezyste
-// Nie sprezyste
-		if(_Ball.getPositionY()<_Paddle.getPosY())
-		{
-			//System.out.println("Nie sprezyste :" + Vx);
-			_Ball.setVxActual(Vx);
-			_Paddle.setVxActual(Vx);
-		}
-// Sprezyste
-		if(_Ball.getPositionY()>=_Paddle.getPosY())
-		{
-			//System.out.println("Sprezyste :" + Vx1 + " : " + Vx2);
-			_Ball.setVxActual(Vx1);
-			_Paddle.setVxActual(Vx2);
-		}
-		
-		
-		_Ball.setVyActual(Vy1);		
-		_Paddle.setVyActual(Vy2);		
-	}
-	public void CalculateAngelAndPointOfCollision()
-	{
-		// *********************************************** //
-		// Obliczenia konta i punktu zderzenia siê pi³ek 
-		// Do testow uzywane s¹ Ball_1, Ball_2.
-		// *********************************************** //
-		
-		Shape collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());
-
-		boolean intersects = collisionShape.getBoundsInLocal().isEmpty();
-		if (!intersects)
-		{
-
-			if (!loopTrigger_1)
+			if (!zones.isIntersects_4()||!zones.isIntersects_5())
 			{
-
-				// Obliczenia trygonometryczne
-
-				double sumaX = 0, sumaY, sumaR, AlfaDegree, AlfaRadians, SinAlfa, CosAlfa;
-				sumaX = TestBall_1.getPositionX() - TestBall_2.getPositionX();
-
-				if (TestBall_1.getPositionX() > TestBall_2.getPositionX())
-				{
-					sumaX = TestBall_1.getPositionX() - TestBall_2.getPositionX();
-				} else if (TestBall_1.getPositionX() < TestBall_2.getPositionX())
-				{
-					sumaX = TestBall_2.getPositionX() - TestBall_1.getPositionX();
-				} else
-				{
-					sumaX = 0;
-				}
-
-				sumaY = TestBall_1.getPositionY() - TestBall_2.getPositionY();
-				if (TestBall_1.getPositionY() > TestBall_2.getPositionY())
-				{
-					sumaY = TestBall_1.getPositionY() - TestBall_2.getPositionY();
-				} else if (TestBall_1.getPositionY() < TestBall_2.getPositionY())
-				{
-					sumaY = TestBall_2.getPositionY() - TestBall_1.getPositionY();
-				} else
-				{
-					sumaY = 0;
-				}
-
-				sumaR = TestBall_1.get_ball().getRadius() + TestBall_2.get_ball().getRadius();
-
-				SinAlfa = sumaY / sumaR;
-				CosAlfa = sumaX / sumaR;
-
-				double X1, X2, Y1, Y2;
-
-				X1 = TestBall_1.get_ball().getRadius() * CosAlfa;
-				X2 = TestBall_2.get_ball().getRadius() * CosAlfa;
-
-				Y1 = TestBall_1.get_ball().getRadius() * SinAlfa;
-				Y2 = TestBall_2.get_ball().getRadius() * SinAlfa;
-
-				if (TestBall_1.getPositionX() > TestBall_2.getPositionX())
-				{
-					CollisionPoint.setCenterX(TestBall_2.getPositionX() + X2);
-
-				} else if (TestBall_1.getPositionX() < TestBall_2.getPositionX())
-				{
-					CollisionPoint.setCenterX(TestBall_2.getPositionX() - X2);
-
-				} else
-				{
-					CollisionPoint.setCenterX(0);
-				}
-
-				if (TestBall_1.getPositionY() > TestBall_2.getPositionY())
-				{
-					CollisionPoint.setCenterY(TestBall_2.getPositionY() + Y2);
-
-				} else if (TestBall_1.getPositionY() < TestBall_2.getPositionY())
-				{
-					CollisionPoint.setCenterY(TestBall_2.getPositionY() - Y2);
-
-				} else
-				{
-					CollisionPoint.setCenterY(0);
-				}
-
-				CollisionPoint.setRadius(3);
-				CollisionPoint.setFill(Color.RED);
-
-				loopTrigger_1 = true;
-
+				_Ball.setVxActual(Vx);
+				_Paddle.setVxActual(Vx);
+				//_Ball.setVxActual(Vx1);
+				//_Paddle.setVxActual(Vx2);
+//				_Ball.setVxActual(-_Ball.getVxActual());
+//				_Paddle.setVxActual(-_Paddle.getVxActual());
+				System.out.format("Vx %2.2f Vx1 %2.2f Vx2 %2.2f\n",Vx,Vx1,Vx2);
 			}
+			_Ball.setVyActual(Vy1);
+			_Paddle.setVyActual(Vy2);
 		} else
 		{
-			loopTrigger_1 = false;
+			// Dla pilki 2
+
+			// Jezeli uderza od góry czy od do³u nie sprezyste
+			// Nie sprezyste
+			// if (_Ball.getPositionY() < _Paddle.getPosY())
+			// {
+			// // System.out.println("Nie sprezyste :" + Vx);
+			// _Ball.setVxActual(Vx);
+			// _Paddle.setVxActual(Vx);
+			// }
+			// // Sprezyste
+			// if (_Ball.getPositionY() >= _Paddle.getPosY())
+			// {
+			// // System.out.println("Sprezyste :" + Vx1 + " : " + Vx2);
+			// _Ball.setVxActual(Vx1);
+			// _Paddle.setVxActual(Vx2);
+			// }
 		}
 
 	}
-
 }
+//	public void CalculateAngelAndPointOfCollision()
+//	{
+//		// *********************************************** //
+//		// Obliczenia konta i punktu zderzenia siê pi³ek 
+//		// Do testow uzywane s¹ Ball_1, Ball_2.
+//		// *********************************************** //
+//		
+//		Shape collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());
+//
+//		boolean intersects = collisionShape.getBoundsInLocal().isEmpty();
+//		if (!intersects)
+//		{
+//
+//			if (!loopTrigger_1)
+//			{
+//
+//				// Obliczenia trygonometryczne
+//
+//				double sumaX = 0, sumaY, sumaR, AlfaDegree, AlfaRadians, SinAlfa, CosAlfa;
+//				sumaX = TestBall_1.getPositionX() - TestBall_2.getPositionX();
+//
+//				if (TestBall_1.getPositionX() > TestBall_2.getPositionX())
+//				{
+//					sumaX = TestBall_1.getPositionX() - TestBall_2.getPositionX();
+//				} else if (TestBall_1.getPositionX() < TestBall_2.getPositionX())
+//				{
+//					sumaX = TestBall_2.getPositionX() - TestBall_1.getPositionX();
+//				} else
+//				{
+//					sumaX = 0;
+//				}
+//
+//				sumaY = TestBall_1.getPositionY() - TestBall_2.getPositionY();
+//				if (TestBall_1.getPositionY() > TestBall_2.getPositionY())
+//				{
+//					sumaY = TestBall_1.getPositionY() - TestBall_2.getPositionY();
+//				} else if (TestBall_1.getPositionY() < TestBall_2.getPositionY())
+//				{
+//					sumaY = TestBall_2.getPositionY() - TestBall_1.getPositionY();
+//				} else
+//				{
+//					sumaY = 0;
+//				}
+//
+//				sumaR = TestBall_1.get_ball().getRadius() + TestBall_2.get_ball().getRadius();
+//
+//				SinAlfa = sumaY / sumaR;
+//				CosAlfa = sumaX / sumaR;
+//
+//				double X1, X2, Y1, Y2;
+//
+//				X1 = TestBall_1.get_ball().getRadius() * CosAlfa;
+//				X2 = TestBall_2.get_ball().getRadius() * CosAlfa;
+//
+//				Y1 = TestBall_1.get_ball().getRadius() * SinAlfa;
+//				Y2 = TestBall_2.get_ball().getRadius() * SinAlfa;
+//
+//				if (TestBall_1.getPositionX() > TestBall_2.getPositionX())
+//				{
+//					CollisionPoint.setCenterX(TestBall_2.getPositionX() + X2);
+//
+//				} else if (TestBall_1.getPositionX() < TestBall_2.getPositionX())
+//				{
+//					CollisionPoint.setCenterX(TestBall_2.getPositionX() - X2);
+//
+//				} else
+//				{
+//					CollisionPoint.setCenterX(0);
+//				}
+//
+//				if (TestBall_1.getPositionY() > TestBall_2.getPositionY())
+//				{
+//					CollisionPoint.setCenterY(TestBall_2.getPositionY() + Y2);
+//
+//				} else if (TestBall_1.getPositionY() < TestBall_2.getPositionY())
+//				{
+//					CollisionPoint.setCenterY(TestBall_2.getPositionY() - Y2);
+//
+//				} else
+//				{
+//					CollisionPoint.setCenterY(0);
+//				}
+//
+//				CollisionPoint.setRadius(3);
+//				CollisionPoint.setFill(Color.RED);
+//
+//				loopTrigger_1 = true;
+//
+//			}
+//		} else
+//		{
+//			loopTrigger_1 = false;
+//		}
+//
+//	}
+//
+//}
