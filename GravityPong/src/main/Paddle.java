@@ -1,15 +1,21 @@
 package main;
+import java.util.ArrayList;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
-public class Paddle implements Parameters
+public class Paddle implements Parameters, Objects
 {
 	Timeline TimeLineBall = new Timeline();
 	private int AnimationSpeed=1;
 	
+	private ArrayList<Shape> Nodes = new ArrayList<Shape>();
 	
 	Rectangle Paddle = new Rectangle();
 	private  double PosX, PosY;
@@ -21,6 +27,19 @@ public class Paddle implements Parameters
 	PaddleCalculationPositionX paddleCalculationPositionX;
 	PaddleCalculationPositionY paddleCalculationPositionY;
 	
+	//Obiekty dla debugingu
+	
+	private Line LimitLeft = new Line();
+	private Line LimitRight = new Line();
+	private Line LimitUp = new Line();
+	private Line LimitDown = new Line();
+	
+	double PaddleLimitLeft = Paddle.getLayoutX();
+	double PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
+	
+	double PaddleLimitUp = Paddle.getLayoutY();
+	double PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+	
 	public Paddle()
 	{
 		Paddle.setWidth(150);
@@ -30,6 +49,12 @@ public class Paddle implements Parameters
 		Paddle.setLayoutY(BasePosY);
 		PosX=Paddle.getLayoutX();
 		PosY=Paddle.getLayoutY();
+		
+		//Linie do debuggingu
+		LimitLeft.setFill(Color.BLACK);
+		LimitRight.setFill(Color.BLACK);
+		LimitUp.setFill(Color.BLACK);
+		LimitDown.setFill(Color.BLACK);
 		
 		paddleCalculationPositionX = new PaddleCalculationPositionX(this, "Paddle Axis X");
 		paddleCalculationPositionY = new PaddleCalculationPositionY(this, "Paddle Axis Y");
@@ -51,10 +76,47 @@ public class Paddle implements Parameters
 		PosY=paddleCalculationPositionY.getPosYActual();
 		VxActual=paddleCalculationPositionX.getVxActual();
 		VyActual=paddleCalculationPositionY.getVyActual();
+		
+
 
 		Paddle.setLayoutX(PosX);
 		Paddle.setLayoutY(PosY);
 		Screen.setActualVelocityLabel(String.format("%2.2f : %2.2f",PosX,PosY));
+		
+	}
+	
+	private void SetLines()
+	{
+		//Limity do debuggingu
+		
+		PaddleLimitLeft = Paddle.getLayoutX();
+		PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
+		
+		PaddleLimitUp = Paddle.getLayoutY();
+		PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+		
+		LimitLeft.setStartX(PaddleLimitLeft);
+		LimitLeft.setEndX(PaddleLimitLeft);
+		LimitLeft.setStartY(0);
+		LimitLeft.setEndY(primaryScene.getHeight());
+		
+		LimitRight.setStartX(PaddleLimitRight);
+		LimitRight.setEndX(PaddleLimitRight);
+		LimitRight.setStartY(0);
+		LimitRight.setEndY(primaryScene.getHeight());
+		
+		LimitUp.setStartX(0);
+		LimitUp.setEndX(primaryScene.getWidth());
+		LimitUp.setStartY(PaddleLimitUp);
+		LimitUp.setEndY(PaddleLimitUp);
+		
+		LimitDown.setStartX(0);
+		LimitDown.setEndX(primaryScene.getWidth());
+		LimitDown.setStartY(PaddleLimitDown);
+		LimitDown.setEndY(PaddleLimitDown);
+		
+		
+		
 		
 	}
 	
@@ -131,6 +193,15 @@ public class Paddle implements Parameters
 	public double getPaddleHeigh()
 	{
 		return Paddle.getHeight();
+	}
+	public ArrayList<Shape> getNodes()
+	{
+		Nodes.add(Paddle);
+		Nodes.add(LimitLeft);		
+		Nodes.add(LimitRight);
+		Nodes.add(LimitUp);
+		Nodes.add(LimitDown);
+		return Nodes;
 	}
 
 
