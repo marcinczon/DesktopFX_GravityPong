@@ -20,9 +20,11 @@ public class Paddle implements Parameters, Objects
 	Rectangle Paddle = new Rectangle();
 	private  double PosX, PosY;
 	private  double VxActual=0, VyActual=0;
-	private  double Weight=10;
+	private  double Weight=1;
 	private  double BasePosX=Screen.primaryScene.getWidth() / 2;
 	private  double BasePosY=Screen.primaryScene.getHeight() -30;
+	private  double PaddleCenterX=Paddle.getLayoutX()+PaddleWidth/2;
+	private  double PaddleCenterY=Paddle.getLayoutY()+PaddleHeight/2;
 	
 	PaddleCalculationPositionX paddleCalculationPositionX;
 	PaddleCalculationPositionY paddleCalculationPositionY;
@@ -33,18 +35,23 @@ public class Paddle implements Parameters, Objects
 	
 	double PaddleLimitUp = Paddle.getLayoutY();
 	double PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+	
+	//Wektory prêdkoœci
+	private Line VectorX = new Line();
+	private Line VectorY = new Line();
 
 	
 	public Paddle()
 	{
-		Paddle.setWidth(150);
-		Paddle.setHeight(20);
+		Paddle.setWidth(PaddleWidth);
+		Paddle.setHeight(PaddleHeight);
 		System.out.println(BasePosX + " " + BasePosY);
 		Paddle.setLayoutX(BasePosX);
 		Paddle.setLayoutY(BasePosY);
+		Paddle.setFill(Color.CHARTREUSE);
 		PosX=Paddle.getLayoutX();
-		PosY=Paddle.getLayoutY();
-		
+		PosY=Paddle.getLayoutY();				
+
 		
 		paddleCalculationPositionX = new PaddleCalculationPositionX(this, "Paddle Axis X");
 		paddleCalculationPositionY = new PaddleCalculationPositionY(this, "Paddle Axis Y");
@@ -67,7 +74,11 @@ public class Paddle implements Parameters, Objects
 		VxActual=paddleCalculationPositionX.getVxActual();
 		VyActual=paddleCalculationPositionY.getVyActual();
 		
+		PaddleCenterX=Paddle.getLayoutX()+PaddleWidth/2;
+		PaddleCenterY=Paddle.getLayoutY()+PaddleHeight/2;
+		
 		SetLines();
+		SetVectors();
 
 
 		Paddle.setLayoutX(PosX);
@@ -152,16 +163,29 @@ public class Paddle implements Parameters, Objects
 		ZoneRectangle_8.setHeight(primaryScene.getHeight());		
 		
 		//ZoneRectangle_1.setFill(Color.TRANSPARENT);
-		ZoneRectangle_2.setFill(Color.TRANSPARENT);
-		ZoneRectangle_3.setFill(Color.TRANSPARENT);
-		ZoneRectangle_4.setFill(Color.TRANSPARENT);
-		ZoneRectangle_5.setFill(Color.TRANSPARENT);
-		ZoneRectangle_6.setFill(Color.TRANSPARENT);
-		ZoneRectangle_7.setFill(Color.TRANSPARENT);
-		ZoneRectangle_8.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_2.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_3.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_4.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_5.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_6.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_7.setFill(Color.TRANSPARENT);
+//		ZoneRectangle_8.setFill(Color.TRANSPARENT);
 
 	}
-	
+	private void SetVectors()
+	{
+		VectorX.setFill(Color.RED);
+		VectorX.setStartX(PaddleCenterX);
+		VectorX.setStartY(PaddleCenterY);
+		VectorX.setEndX(PaddleCenterX+VxActual);
+		VectorX.setEndY(PaddleCenterY);
+		
+		VectorY.setFill(Color.BLUE);
+		VectorY.setStartX(PaddleCenterX);
+		VectorY.setStartY(PaddleCenterY);
+		VectorY.setEndX(PaddleCenterX);
+		VectorY.setEndY(PaddleCenterY+VyActual);
+	}
 	
 	
 
@@ -245,6 +269,8 @@ public class Paddle implements Parameters, Objects
 		Nodes.add(LimitRight);
 		Nodes.add(LimitUp);
 		Nodes.add(LimitDown);
+		Nodes.add(VectorX);
+		Nodes.add(VectorY);
 		
 		Nodes.add(ZoneRectangle_1);
 		Nodes.add(ZoneRectangle_2);
