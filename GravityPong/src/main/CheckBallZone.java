@@ -7,15 +7,15 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 {
 
 	Thread LocalThread = new Thread(this, "CheckBallZone");
-	Shape collisionShape;
-	boolean intersects_1;
-	boolean intersects_2;
-	boolean intersects_3;
-	boolean intersects_4;
-	boolean intersects_5;
-	boolean intersects_6;
-	boolean intersects_7;
-	boolean intersects_8;
+	Shape collisionShape1;
+	Shape collisionShape2;
+	Shape collisionShape3;
+	Shape collisionShape4;
+	Shape collisionShape5;
+	Shape collisionShape6;
+	Shape collisionShape7;
+	Shape collisionShape8;
+	
 	
 	public CheckBallZone()
 	{
@@ -34,89 +34,89 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 //		ZoneRectangle_8.setFill(Color.TRANSPARENT);
 		
 		
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_1);		
-		intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_2);		
-		intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_3);		
-		intersects_3 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_4);		
-		intersects_4 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_5);		
-		intersects_5 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_6);		
-		intersects_6 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_7);		
-		intersects_7 = collisionShape.getBoundsInLocal().isEmpty();
-		collisionShape = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_8);		
-		intersects_8 = collisionShape.getBoundsInLocal().isEmpty();
+		collisionShape1 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_1);		
+		zones.setIntersects_1(collisionShape1.getBoundsInLocal().isEmpty());
+		collisionShape2 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_2);		
+		zones.setIntersects_2(collisionShape2.getBoundsInLocal().isEmpty());
+		collisionShape3 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_3);		
+		zones.setIntersects_3(collisionShape3.getBoundsInLocal().isEmpty());
+		collisionShape4 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_4);		
+		zones.setIntersects_4(collisionShape4.getBoundsInLocal().isEmpty());
+		collisionShape5 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_5);		
+		zones.setIntersects_5(collisionShape5.getBoundsInLocal().isEmpty());
+		collisionShape6 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_6);		
+		zones.setIntersects_6(collisionShape6.getBoundsInLocal().isEmpty());
+		collisionShape7 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_7);		
+		zones.setIntersects_7(collisionShape7.getBoundsInLocal().isEmpty());
+		collisionShape8 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_8);		
+		zones.setIntersects_8(collisionShape8.getBoundsInLocal().isEmpty());
 		
-		if(!intersects_1)
+		if(!zones.isIntersects_1())
 		{
-			ZoneRectangle_1.setFill(Color.BLUE);			
+			ZoneRectangle_1.setFill(Color.AZURE);			
 		}
 		else
 		{
 			ZoneRectangle_1.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!intersects_2)
+		if(!zones.isIntersects_2())
 		{
-			ZoneRectangle_2.setFill(Color.RED);
+			ZoneRectangle_2.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_2.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!intersects_3)
+		if(!zones.isIntersects_3())
 		{
-			ZoneRectangle_3.setFill(Color.RED);
+			ZoneRectangle_3.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_3.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!intersects_4)
+		if(!zones.isIntersects_4())
 		{
-			ZoneRectangle_4.setFill(Color.RED);
+			ZoneRectangle_4.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_4.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!intersects_5)
+		if(!zones.isIntersects_5())
 		{
-			ZoneRectangle_5.setFill(Color.RED);
+			ZoneRectangle_5.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_5.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!intersects_6)
+		if(!zones.isIntersects_6())
 		{
-			ZoneRectangle_6.setFill(Color.RED);
+			ZoneRectangle_6.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_6.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!intersects_7)
+		if(!zones.isIntersects_7())
 		{
-			ZoneRectangle_7.setFill(Color.RED);
+			ZoneRectangle_7.setFill(Color.AZURE);
 		}
 		else
 		{
 			ZoneRectangle_7.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!intersects_8)
+		if(!zones.isIntersects_8())
 		{
-			ZoneRectangle_8.setFill(Color.RED);
+			ZoneRectangle_8.setFill(Color.AZURE);
 		}
 		else
 		{

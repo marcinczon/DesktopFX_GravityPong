@@ -56,8 +56,8 @@ public class Ball implements Parameters
 		
 		//Losowanie predkoœci pocz¹tkowej pi³ki
 		Random _random = new Random();
-		VxActual=(double)_random.nextInt(40)-20;
-		VyActual=(double)_random.nextInt(40)-20;
+		VxActual=(double)_random.nextInt(20)-10;
+		VyActual=(double)_random.nextInt(20)-10;
 		
 		//Utworzenie funkcji watkowych do obliczania po³o¿enia		
 		ballCalculationPositionX = new BallCalculationPositionX(this,VxActual,"  Axis X ");
@@ -191,6 +191,10 @@ public class Ball implements Parameters
 		Nodes.add(VectorX);
 		Nodes.add(VectorY);
 		return Nodes;
+	}
+	public int getBallNummer()
+	{
+		return BallNummer;
 	}
 }
 ///

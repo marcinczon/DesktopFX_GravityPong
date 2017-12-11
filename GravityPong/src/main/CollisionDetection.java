@@ -209,10 +209,13 @@ public class CollisionDetection implements Objects
 		double Vx1, Vx2, Vy1 = 0, Vy2 = 0;
 		double Vx = 0;
 
+		
+// Coœ jest nie tak z równaniami
+// Jak siê odbija pilki sprêzyscie to musz¹ mieæ odwrotne kierunki!
 // Sprêzyste rowanie pedu
 		Vx1 = (Ux1 * (m1 - m2) + 2 * m2 * Ux2) / (m1 + m2);
 		Vx2 = (Ux2 * (m2 - m1) + 2 * m1 * Ux1) / (m2 + m1);
-//
+
 		
 		Vy1 = (Uy1 * (m1 - m2) + 2 * m2 * Uy2) / (m1 + m2);		
 		Vy2 = (Uy2 * (m2 - m1) + 2 * m1 * Uy1) / (m2 + m1);
@@ -238,7 +241,7 @@ public class CollisionDetection implements Objects
 //			}
 			if (!zones.isIntersects_4()||!zones.isIntersects_5())
 			{
-				_Ball.setVxActual(Vx);
+				_Ball.setVxActual(-Vx);
 				_Paddle.setVxActual(Vx);
 				//_Ball.setVxActual(Vx1);
 				//_Paddle.setVxActual(Vx2);

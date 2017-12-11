@@ -12,6 +12,9 @@ public interface Parameters
     static double MinSpeedY=-100;
     
 	// Paddle
+    static double PaddleWidth=150;
+    static double PaddleHeight=20;
+    
 	static double PaddlePositivAccelerationY = -70;
 	static double PaddleNegativAccelerationY = 40;
 	static double PaddleAccelerationX=5;

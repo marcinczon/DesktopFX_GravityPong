@@ -71,7 +71,7 @@ public class Screen implements Runnable , Parameters, Objects
 	private void CreateTestsBalls()
 	{
 		primaryPane.getChildren().addAll(TestBall_1.getNodes());
-		primaryPane.getChildren().addAll(TestBall_2.getNodes());
+		//primaryPane.getChildren().addAll(TestBall_2.getNodes());
 	}
 	
 	
