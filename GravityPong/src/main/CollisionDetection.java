@@ -239,10 +239,39 @@ public class CollisionDetection implements Objects
 //				_Ball.setVxActual(Vx);
 //				_Paddle.setVxActual(Vx);
 //			}
-			if (!zones.isIntersects_4()||!zones.isIntersects_5())
-			{
-				_Ball.setVxActual(-Vx);
-				_Paddle.setVxActual(Vx);
+			if (!zones.isIntersects_4())
+			{	
+				ZoneRectangle_1.setFill(Color.RED);
+				System.out.println("Zona 4");
+				if(Ux2>0)
+				{
+					_Ball.setVxActual(-Vx);
+				}
+				if(Ux2<0)
+				{
+					_Ball.setVxActual(-Vx);
+				}
+				if(Ux2==0)
+				{
+					
+				}
+				
+				if(Ux1>0)
+				{
+					_Paddle.setVxActual(Vx);
+				}
+				if(Ux1<0)
+				{
+					_Paddle.setVxActual(-Vx);
+				}
+				if(Ux1==0)
+				{
+					
+				}
+			
+
+				
+				
 				//_Ball.setVxActual(Vx1);
 				//_Paddle.setVxActual(Vx2);
 //				_Ball.setVxActual(-_Ball.getVxActual());
