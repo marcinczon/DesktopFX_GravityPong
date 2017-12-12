@@ -100,19 +100,13 @@ public class CollisionDetection implements Objects
 
 	}
 	public static void CollisionBallsDetection_3()
-	{
-		// *** Mozna uzyæ bounds i porównaæ je ***
-		
-		//Bounds boundsBall = primaryBall.get_ball().localToScene(primaryBall.get_ball().getBoundsInParent());
-		//Bounds boundsPaddle = primaryPaddle.getPaddle().localToScene(primaryPaddle.getPaddle().getBoundsInLocal());
-		
-		// *** Latwiejszy sposób  ***
-		
+	{		
 		Shape collisionShape = Shape.intersect(TestBall_1.get_ball(), primaryPaddle.getPaddle());		
 		boolean intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
 		
 		if (!intersects_1)
 		{
+			primaryPaddle.getPaddle().setFill(Color.RED);
 			if (!loopTrigger_1)
 			{
 				CollisionWithPeddle(TestBall_1,primaryPaddle);
@@ -121,8 +115,37 @@ public class CollisionDetection implements Objects
 		}
 		else
 		{
+			primaryPaddle.getPaddle().setFill(Color.CHARTREUSE);
 			loopTrigger_1 = false;
 		}
+//		intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
+//		if(!intersects_1)
+//		{
+//			if (zones.isIntersects_4() || zones.isIntersects_5())
+//			{
+//				System.out.println("zmiana");
+//				if (TestBall_1.getVxActual() > 0 && primaryPaddle.getVxActual() > 0)
+//				{
+//					TestBall_1.setVxActual(TestBall_1.getVxActual() * -1);
+//				}
+//				if (TestBall_1.getVxActual() < 0 && primaryPaddle.getVxActual() < 0)
+//				{
+//					TestBall_1.setVxActual(TestBall_1.getVxActual() * -1);
+//				}
+//			}
+//		}
+//		if (!intersects_1)
+//		{
+//			CollisionWithPeddle(TestBall_1,primaryPaddle);
+//			
+//			do
+//			{				
+//				intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
+//				System.out.println("Do While");
+//
+//			} while (intersects_1);
+//			primaryPaddle.getPaddle().setFill(Color.CHARTREUSE);
+//		}
 
 //		collisionShape = Shape.intersect(TestBall_2.get_ball(), primaryPaddle.getPaddle());		
 //		boolean intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
@@ -156,8 +179,6 @@ public class CollisionDetection implements Objects
 //			loopTrigger_3 = false;
 //		}	
 	}
-	
-	
 	public static void CollisionTwoBall(Ball Ball_1, Ball Ball_2)
 	{
 		// *********************************************** //
@@ -210,9 +231,8 @@ public class CollisionDetection implements Objects
 		double Vx = 0;
 
 		
-// Coœ jest nie tak z równaniami
-// Jak siê odbija pilki sprêzyscie to musz¹ mieæ odwrotne kierunki!
 // Sprêzyste rowanie pedu
+		
 		Vx1 = (Ux1 * (m1 - m2) + 2 * m2 * Ux2) / (m1 + m2);
 		Vx2 = (Ux2 * (m2 - m1) + 2 * m1 * Ux1) / (m2 + m1);
 
@@ -222,8 +242,9 @@ public class CollisionDetection implements Objects
 		
 		
 // Nie sprezyste rownanie pêdu
-		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);	
-		Vx=Math.abs(Vx);
+// Czyli cia³a siê "³¹cz¹" po zderzeniu
+		
+		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);		
 		
 //		1  |	 2		| 3
 //		___|____________|___
@@ -231,103 +252,32 @@ public class CollisionDetection implements Objects
 //		   |            |
 //		6  |	7    	| 8
 		   
-		   //Rownania dla odpowiednich zderzeñ
+		// Rownania dla odpowiednich zderzeñ
 
-		if (_Ball.getBallNummer() == 1)
-		{
-//			if (zones.isIntersects_2() || zones.isIntersects_7())
-//			{
-//				_Ball.setVxActual(Vx);
-//				_Paddle.setVxActual(Vx);
-//			}
-			System.out.println(String.format("Ball Vx: %2.1f Paddle Vx: %2.1f  || Vx: %2.1f", Ux1,Ux2,Vx));
-			if (!zones.isIntersects_4())
-			{	
-				ZoneRectangle_1.setFill(Color.RED);
-				System.out.println("Zona 4");
-				if(Ux1>0 && Ux2>0)
-				{
-					_Ball.setVxActual(Vx);
-					_Paddle.setVxActual(Vx);
-				}
-				else if(Ux1<0 && Ux2<0)
-				{
-					_Ball.setVxActual(-Vx);
-					_Paddle.setVxActual(-Vx);
-				}
-				else if(Ux1>0 && Ux2<0)
-				{
-					_Ball.setVxActual(-Vx);
-					_Paddle.setVxActual(Vx);
-				}
-				else if(Ux1<0 && Ux2>0)
-				{
-					_Ball.setVxActual(Vx);
-					_Paddle.setVxActual(-Vx);
-				}
-				else if(Ux1==0)
-				{
-					_Ball.setVxActual(Vx);
-					_Paddle.setVxActual(-Vx);
-				}
-				else if(Ux2==0)
-				{
-					_Ball.setVxActual(-Vx);
-					_Paddle.setVxActual(Vx);
-				}
-//				if(Ux1>0 && Ux2==0)
-//				{
-//					_Ball.setVxActual(-Vx);
-//					_Paddle.setVxActual(Vx);
-//				}
-//				if(Ux1<0 && Ux2==0)
-//				{
-//					_Ball.setVxActual(Vx);
-//					_Paddle.setVxActual(-Vx);
-//				}
-//				if(Ux1==0 && Ux2>0)
-//				{
-//					_Ball.setVxActual(Vx);
-//					_Paddle.setVxActual(-Vx);
-//				}
-//				if(Ux1==0 && Ux2<0)
-//				{
-//					_Ball.setVxActual(-Vx);
-//					_Paddle.setVxActual(Vx);
-//				}
 		
-			
-
-				
-				
-				//_Ball.setVxActual(Vx1);
-				//_Paddle.setVxActual(Vx2);
-//				_Ball.setVxActual(-_Ball.getVxActual());
-//				_Paddle.setVxActual(-_Paddle.getVxActual());
-				
+		if ((zones.isIntersects_4() && (zones.isIntersects_1() || zones.isIntersects_6()))
+				|| (zones.isIntersects_5() && (zones.isIntersects_3() || zones.isIntersects_8())))
+		{
+			System.out.println("Warunek 1");
+			if (Vx1 > 0 && Vx2 > 0)
+			{
+				Vx1 = Vx1 * -1;
 			}
-			_Ball.setVyActual(Vy1);
-			_Paddle.setVyActual(Vy2);
+			if (Vx1 < 0 && Vx2 < 0)
+			{
+				Vx1 = Vx1 * -1;
+			}
+			_Ball.setVxActual(Vx1);
+			_Paddle.setVxActual(Vx2);
 		} else
 		{
-			// Dla pilki 2
-
-			// Jezeli uderza od góry czy od do³u nie sprezyste
-			// Nie sprezyste
-			// if (_Ball.getPositionY() < _Paddle.getPosY())
-			// {
-			// // System.out.println("Nie sprezyste :" + Vx);
-			// _Ball.setVxActual(Vx);
-			// _Paddle.setVxActual(Vx);
-			// }
-			// // Sprezyste
-			// if (_Ball.getPositionY() >= _Paddle.getPosY())
-			// {
-			// // System.out.println("Sprezyste :" + Vx1 + " : " + Vx2);
-			// _Ball.setVxActual(Vx1);
-			// _Paddle.setVxActual(Vx2);
-			// }
+			System.out.println("Warunek 2");
+			// Vx tylko jak uderza od gory i od do³u
+			_Ball.setVxActual(Vx1);
+			_Paddle.setVxActual(Vx2);
 		}
+		_Ball.setVyActual(Vy1);
+		_Paddle.setVyActual(Vy2);
 
 	}
 }
