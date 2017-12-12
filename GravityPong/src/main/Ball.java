@@ -7,6 +7,7 @@ import java.util.Random;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -32,6 +33,9 @@ public class Ball implements Parameters
 	//Wektory prêdkoœci
 	private Line VectorX = new Line();
 	private Line VectorY = new Line();
+	
+	private Label LabelVelocityX = new Label();
+	private Label LabelVelocityY = new Label();
 
 	
 	// Obliczenia wielow¹tkowe
@@ -56,8 +60,8 @@ public class Ball implements Parameters
 		
 		//Losowanie predkoœci pocz¹tkowej pi³ki
 		Random _random = new Random();
-		VxActual=(double)_random.nextInt(20)-10;
-		VyActual=(double)_random.nextInt(20)-10;
+		VxActual=(double)_random.nextInt(40)-20;
+		VyActual=(double)_random.nextInt(5)-10;
 		
 		//Utworzenie funkcji watkowych do obliczania po³o¿enia		
 		ballCalculationPositionX = new BallCalculationPositionX(this,VxActual,"  Axis X ");
@@ -88,6 +92,18 @@ public class Ball implements Parameters
 		VectorY.setStartY(Ball.getCenterY());
 		VectorY.setEndX(Ball.getCenterX());
 		VectorY.setEndY(Ball.getCenterY()+VyActual);
+	}
+	private void SetVelocityLabel()
+	{
+		LabelVelocityX.setLayoutX(Ball.getCenterX()+10);
+		LabelVelocityX.setLayoutY(Ball.getCenterX()+10);
+		
+		LabelVelocityY.setLayoutX(Ball.getCenterX()+10);
+		LabelVelocityY.setLayoutY(Ball.getCenterX()+20);
+		
+		LabelVelocityX.setText(String.format("%2.2f",VxActual));
+		LabelVelocityY.setText(String.format("%2.2f",VyActual));
+		
 	}
 
 	private void MoveBall()
@@ -190,6 +206,8 @@ public class Ball implements Parameters
 		Nodes.add(Ball);		
 		Nodes.add(VectorX);
 		Nodes.add(VectorY);
+	//	Nodes.add(LabelVelocityX.getShape());
+	//	Nodes.add(LabelVelocityY.getShape());
 		return Nodes;
 	}
 	public int getBallNummer()

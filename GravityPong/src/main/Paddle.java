@@ -83,7 +83,7 @@ public class Paddle implements Parameters, Objects
 
 		Paddle.setLayoutX(PosX);
 		Paddle.setLayoutY(PosY);
-		Screen.setActualVelocityLabel(String.format("%2.2f : %2.2f",PosX,PosY));
+		Screen.setActualVelocityLabel(String.format("%2.2f : %2.2f",VxActual,VyActual));
 		
 	}
 	

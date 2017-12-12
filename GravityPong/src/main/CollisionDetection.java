@@ -222,7 +222,8 @@ public class CollisionDetection implements Objects
 		
 		
 // Nie sprezyste rownanie pêdu
-		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);		
+		Vx=(Ux1*m1+Ux2*m2)/(m1+m2);	
+		Vx=Math.abs(Vx);
 		
 //		1  |	 2		| 3
 //		___|____________|___
@@ -239,35 +240,62 @@ public class CollisionDetection implements Objects
 //				_Ball.setVxActual(Vx);
 //				_Paddle.setVxActual(Vx);
 //			}
+			System.out.println(String.format("Ball Vx: %2.1f Paddle Vx: %2.1f  || Vx: %2.1f", Ux1,Ux2,Vx));
 			if (!zones.isIntersects_4())
 			{	
 				ZoneRectangle_1.setFill(Color.RED);
 				System.out.println("Zona 4");
-				if(Ux2>0)
+				if(Ux1>0 && Ux2>0)
 				{
-					_Ball.setVxActual(-Vx);
-				}
-				if(Ux2<0)
-				{
-					_Ball.setVxActual(-Vx);
-				}
-				if(Ux2==0)
-				{
-					
-				}
-				
-				if(Ux1>0)
-				{
+					_Ball.setVxActual(Vx);
 					_Paddle.setVxActual(Vx);
 				}
-				if(Ux1<0)
+				else if(Ux1<0 && Ux2<0)
 				{
+					_Ball.setVxActual(-Vx);
 					_Paddle.setVxActual(-Vx);
 				}
-				if(Ux1==0)
+				else if(Ux1>0 && Ux2<0)
 				{
-					
+					_Ball.setVxActual(-Vx);
+					_Paddle.setVxActual(Vx);
 				}
+				else if(Ux1<0 && Ux2>0)
+				{
+					_Ball.setVxActual(Vx);
+					_Paddle.setVxActual(-Vx);
+				}
+				else if(Ux1==0)
+				{
+					_Ball.setVxActual(Vx);
+					_Paddle.setVxActual(-Vx);
+				}
+				else if(Ux2==0)
+				{
+					_Ball.setVxActual(-Vx);
+					_Paddle.setVxActual(Vx);
+				}
+//				if(Ux1>0 && Ux2==0)
+//				{
+//					_Ball.setVxActual(-Vx);
+//					_Paddle.setVxActual(Vx);
+//				}
+//				if(Ux1<0 && Ux2==0)
+//				{
+//					_Ball.setVxActual(Vx);
+//					_Paddle.setVxActual(-Vx);
+//				}
+//				if(Ux1==0 && Ux2>0)
+//				{
+//					_Ball.setVxActual(Vx);
+//					_Paddle.setVxActual(-Vx);
+//				}
+//				if(Ux1==0 && Ux2<0)
+//				{
+//					_Ball.setVxActual(-Vx);
+//					_Paddle.setVxActual(Vx);
+//				}
+		
 			
 
 				
@@ -276,7 +304,7 @@ public class CollisionDetection implements Objects
 				//_Paddle.setVxActual(Vx2);
 //				_Ball.setVxActual(-_Ball.getVxActual());
 //				_Paddle.setVxActual(-_Paddle.getVxActual());
-				System.out.format("Vx %2.2f Vx1 %2.2f Vx2 %2.2f\n",Vx,Vx1,Vx2);
+				
 			}
 			_Ball.setVyActual(Vy1);
 			_Paddle.setVyActual(Vy2);
