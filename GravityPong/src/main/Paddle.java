@@ -20,7 +20,7 @@ public class Paddle implements Parameters, Objects
 	Rectangle Paddle = new Rectangle();
 	private  double PosX, PosY;
 	private  double VxActual=0, VyActual=0;
-	private  double Weight=1;
+	private  double Weight=4;
 	private  double BasePosX=Screen.primaryScene.getWidth() / 2;
 	private  double BasePosY=Screen.primaryScene.getHeight() -30;
 	private  double PaddleCenterX=Paddle.getLayoutX()+PaddleWidth/2;
@@ -161,15 +161,6 @@ public class Paddle implements Parameters, Objects
 		ZoneRectangle_8.setLayoutY(PaddleLimitDown);
 		ZoneRectangle_8.setWidth(primaryScene.getWidth());
 		ZoneRectangle_8.setHeight(primaryScene.getHeight());		
-		
-		//ZoneRectangle_1.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_2.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_3.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_4.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_5.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_6.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_7.setFill(Color.TRANSPARENT);
-//		ZoneRectangle_8.setFill(Color.TRANSPARENT);
 
 	}
 	private void SetVectors()

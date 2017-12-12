@@ -35,23 +35,23 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 		
 		
 		collisionShape1 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_1);		
-		zones.setIntersects_1(collisionShape1.getBoundsInLocal().isEmpty());
+		zones.setIntersects_1(!collisionShape1.getBoundsInLocal().isEmpty());
 		collisionShape2 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_2);		
-		zones.setIntersects_2(collisionShape2.getBoundsInLocal().isEmpty());
+		zones.setIntersects_2(!collisionShape2.getBoundsInLocal().isEmpty());
 		collisionShape3 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_3);		
-		zones.setIntersects_3(collisionShape3.getBoundsInLocal().isEmpty());
+		zones.setIntersects_3(!collisionShape3.getBoundsInLocal().isEmpty());
 		collisionShape4 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_4);		
-		zones.setIntersects_4(collisionShape4.getBoundsInLocal().isEmpty());
+		zones.setIntersects_4(!collisionShape4.getBoundsInLocal().isEmpty());
 		collisionShape5 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_5);		
-		zones.setIntersects_5(collisionShape5.getBoundsInLocal().isEmpty());
+		zones.setIntersects_5(!collisionShape5.getBoundsInLocal().isEmpty());
 		collisionShape6 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_6);		
-		zones.setIntersects_6(collisionShape6.getBoundsInLocal().isEmpty());
+		zones.setIntersects_6(!collisionShape6.getBoundsInLocal().isEmpty());
 		collisionShape7 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_7);		
-		zones.setIntersects_7(collisionShape7.getBoundsInLocal().isEmpty());
+		zones.setIntersects_7(!collisionShape7.getBoundsInLocal().isEmpty());
 		collisionShape8 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_8);		
-		zones.setIntersects_8(collisionShape8.getBoundsInLocal().isEmpty());
+		zones.setIntersects_8(!collisionShape8.getBoundsInLocal().isEmpty());
 		
-		if(!zones.isIntersects_1())
+		if(zones.isIntersects_1())
 		{
 			ZoneRectangle_1.setFill(Color.AZURE);			
 		}
@@ -60,7 +60,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_1.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!zones.isIntersects_2())
+		if(zones.isIntersects_2())
 		{
 			ZoneRectangle_2.setFill(Color.AZURE);
 		}
@@ -69,7 +69,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_2.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!zones.isIntersects_3())
+		if(zones.isIntersects_3())
 		{
 			ZoneRectangle_3.setFill(Color.AZURE);
 		}
@@ -78,7 +78,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_3.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!zones.isIntersects_4())
+		if(zones.isIntersects_4())
 		{
 			ZoneRectangle_4.setFill(Color.AZURE);
 		}
@@ -87,7 +87,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_4.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!zones.isIntersects_5())
+		if(zones.isIntersects_5())
 		{
 			ZoneRectangle_5.setFill(Color.AZURE);
 		}
@@ -96,7 +96,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_5.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!zones.isIntersects_6())
+		if(zones.isIntersects_6())
 		{
 			ZoneRectangle_6.setFill(Color.AZURE);
 		}
@@ -105,7 +105,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_6.setFill(Color.TRANSPARENT);
 		}
 		
-		if(!zones.isIntersects_7())
+		if(zones.isIntersects_7())
 		{
 			ZoneRectangle_7.setFill(Color.AZURE);
 		}
@@ -114,7 +114,7 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 			ZoneRectangle_7.setFill(Color.TRANSPARENT);
 		}		
 		
-		if(!zones.isIntersects_8())
+		if(zones.isIntersects_8())
 		{
 			ZoneRectangle_8.setFill(Color.AZURE);
 		}
