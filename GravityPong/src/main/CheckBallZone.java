@@ -51,85 +51,86 @@ public class CheckBallZone implements Runnable,Objects,Parameters
 		collisionShape8 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_8);		
 		zones.setIntersects_8(!collisionShape8.getBoundsInLocal().isEmpty());
 		
-		if(zones.isIntersects_1())
+		if (ShowZoneActive)
 		{
-			ZoneRectangle_1.setFill(Color.AZURE);			
-		}
+			if (zones.isIntersects_1())
+			{
+				ZoneRectangle_1.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_1.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_2())
+			{
+				ZoneRectangle_2.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_2.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_3())
+			{
+				ZoneRectangle_3.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_3.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_4())
+			{
+				ZoneRectangle_4.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_4.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_5())
+			{
+				ZoneRectangle_5.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_5.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_6())
+			{
+				ZoneRectangle_6.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_6.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_7())
+			{
+				ZoneRectangle_7.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_7.setFill(Color.TRANSPARENT);
+			}
+
+			if (zones.isIntersects_8())
+			{
+				ZoneRectangle_8.setFill(Color.AZURE);
+			} else
+			{
+				ZoneRectangle_8.setFill(Color.TRANSPARENT);
+			}
+		}	
 		else
 		{
 			ZoneRectangle_1.setFill(Color.TRANSPARENT);
-		}		
-		
-		if(zones.isIntersects_2())
-		{
-			ZoneRectangle_2.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_2.setFill(Color.TRANSPARENT);
-		}
-		
-		if(zones.isIntersects_3())
-		{
-			ZoneRectangle_3.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_3.setFill(Color.TRANSPARENT);
-		}		
-		
-		if(zones.isIntersects_4())
-		{
-			ZoneRectangle_4.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_4.setFill(Color.TRANSPARENT);
-		}
-		
-		if(zones.isIntersects_5())
-		{
-			ZoneRectangle_5.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_5.setFill(Color.TRANSPARENT);
-		}		
-		
-		if(zones.isIntersects_6())
-		{
-			ZoneRectangle_6.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_6.setFill(Color.TRANSPARENT);
-		}
-		
-		if(zones.isIntersects_7())
-		{
-			ZoneRectangle_7.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_7.setFill(Color.TRANSPARENT);
-		}		
-		
-		if(zones.isIntersects_8())
-		{
-			ZoneRectangle_8.setFill(Color.AZURE);
-		}
-		else
-		{
 			ZoneRectangle_8.setFill(Color.TRANSPARENT);
+			
+			
 		}
-		
-
-		
-	}
-		
-	
-	
-	
+	}	
 	@Override
 	public void run()
 	{

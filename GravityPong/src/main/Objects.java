@@ -25,7 +25,7 @@ public interface Objects
 	// Do testów dwie pilki statyczne nie dodane do listy obiektow
 	
 	Ball TestBall_1 = new Ball(0,0,30,Color.CHARTREUSE);
-	//Ball TestBall_2 = new Ball(400,400,50,Color.BLUE);
+	Ball TestBall_2 = new Ball(400,400,50,Color.BLUE);
 	
 	Paddle primaryPaddle = new Paddle();
 	

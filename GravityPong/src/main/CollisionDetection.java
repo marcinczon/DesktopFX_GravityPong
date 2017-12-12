@@ -118,66 +118,37 @@ public class CollisionDetection implements Objects
 			primaryPaddle.getPaddle().setFill(Color.CHARTREUSE);
 			loopTrigger_1 = false;
 		}
-//		intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
-//		if(!intersects_1)
-//		{
-//			if (zones.isIntersects_4() || zones.isIntersects_5())
-//			{
-//				System.out.println("zmiana");
-//				if (TestBall_1.getVxActual() > 0 && primaryPaddle.getVxActual() > 0)
-//				{
-//					TestBall_1.setVxActual(TestBall_1.getVxActual() * -1);
-//				}
-//				if (TestBall_1.getVxActual() < 0 && primaryPaddle.getVxActual() < 0)
-//				{
-//					TestBall_1.setVxActual(TestBall_1.getVxActual() * -1);
-//				}
-//			}
-//		}
-//		if (!intersects_1)
-//		{
-//			CollisionWithPeddle(TestBall_1,primaryPaddle);
-//			
-//			do
-//			{				
-//				intersects_1 = collisionShape.getBoundsInLocal().isEmpty();
-//				System.out.println("Do While");
-//
-//			} while (intersects_1);
-//			primaryPaddle.getPaddle().setFill(Color.CHARTREUSE);
-//		}
-
-//		collisionShape = Shape.intersect(TestBall_2.get_ball(), primaryPaddle.getPaddle());		
-//		boolean intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
-//		
-//		if (!intersects_2)
-//		{
-//			if (!loopTrigger_2)
-//			{
-//				CollisionWithPeddle(TestBall_2,primaryPaddle);
-//				loopTrigger_2 = true;
-//			}
-//		}
-//		else
-//		{
-//			loopTrigger_2 = false;
-//		}		
-//		
-//		collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());					
-//		boolean intersects_3 = collisionShape.getBoundsInLocal().isEmpty();
-//		
-//		if (!intersects_3)
-//		{
-//			if (!loopTrigger_3)
-//			{			
-//				CollisionTwoBall(TestBall_1,TestBall_2);	
-//				//System.out.println("Balls Collision");
-//				loopTrigger_3 = true;
-//			}
-//		} else
-//		{
-//			loopTrigger_3 = false;
-//		}	
+		collisionShape = Shape.intersect(TestBall_2.get_ball(), primaryPaddle.getPaddle());		
+		boolean intersects_2 = collisionShape.getBoundsInLocal().isEmpty();
+		
+		if (!intersects_2)
+		{
+			if (!loopTrigger_2)
+			{
+				CollisionWithPeddle(TestBall_2,primaryPaddle);
+				loopTrigger_2 = true;
+			}
+		}
+		else
+		{
+			loopTrigger_2 = false;
+		}		
+		
+		collisionShape = Shape.intersect(TestBall_1.get_ball(), TestBall_2.get_ball());					
+		boolean intersects_3 = collisionShape.getBoundsInLocal().isEmpty();
+		
+		if (!intersects_3)
+		{
+			if (!loopTrigger_3)
+			{			
+				CollisionTwoBall(TestBall_1,TestBall_2);	
+				//System.out.println("Balls Collision");
+				loopTrigger_3 = true;
+			}
+		} else
+		{
+			loopTrigger_3 = false;
+		}	
 	}
 	public static void CollisionTwoBall(Ball Ball_1, Ball Ball_2)
 	{

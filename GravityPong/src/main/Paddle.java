@@ -78,7 +78,10 @@ public class Paddle implements Parameters, Objects
 		PaddleCenterY=Paddle.getLayoutY()+PaddleHeight/2;
 		
 		SetLines();
-		SetVectors();
+		if (ShowVectors)
+		{
+			SetVectors();
+		}
 
 
 		Paddle.setLayoutX(PosX);

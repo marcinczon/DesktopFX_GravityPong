@@ -11,6 +11,8 @@ public interface Parameters
     static double MinSpeedX=-100;
     static double MinSpeedY=-100;
     
+    static boolean ShowVectors=false;
+    
 	// Paddle
     static double PaddleWidth=150;
     static double PaddleHeight=20;
@@ -37,6 +39,11 @@ public interface Parameters
 	static int    ScreenSleepTimeThread = 1;
 	static int    initScreenHeight=800;
 	static int    initScreenWidth=800;
+	
+	
+	//Zones
+	
+	static boolean ShowZoneActive=false;
 	
 	
 }

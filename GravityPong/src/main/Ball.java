@@ -115,7 +115,10 @@ public class Ball implements Parameters
 		Ball.setCenterX(ballCalculationPositionX.getPositionX());
 		Ball.setCenterY(ballCalculationPositionY.getPositionY());
 
-		SetVectors();
+		if (ShowVectors)
+		{
+			SetVectors();
+		}
 		//setCollisionPoint(0, 0);
 
 	}
@@ -206,8 +209,6 @@ public class Ball implements Parameters
 		Nodes.add(Ball);		
 		Nodes.add(VectorX);
 		Nodes.add(VectorY);
-	//	Nodes.add(LabelVelocityX.getShape());
-	//	Nodes.add(LabelVelocityY.getShape());
 		return Nodes;
 	}
 	public int getBallNummer()
