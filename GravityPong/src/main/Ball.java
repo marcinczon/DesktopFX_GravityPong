@@ -33,17 +33,12 @@ public class Ball implements I_Parameters
 	
 	//Wektory prêdkoœci
 	private Line VectorX = new Line();
-	private Line VectorY = new Line();
-	
-	private Label LabelVelocityX = new Label();
-	private Label LabelVelocityY = new Label();
+	private Line VectorY = new Line();	
 
 	
 	// Obliczenia wielow¹tkowe
 	Ball_CalculationPositionX ball_CalculationPositionX;
-	Ball_CalculationPositionY ball_CalculationPositionY;
-	
-
+	Ball_CalculationPositionY ball_CalculationPositionY;	
 
 	
 	public Ball(double X, double Y, double Weight, Color _Color)
@@ -80,7 +75,8 @@ public class Ball implements I_Parameters
 		//Animacja pi³ki
 		TimeLineBall = new Timeline(new KeyFrame(Duration.millis(AnimationSpeed), ae -> MoveBall()));
 		TimeLineBall.setCycleCount(Animation.INDEFINITE);
-		TimeLineBall.play();		
+		TimeLineBall.play();
+
 		}
 	private void SetVectors()
 	{
@@ -96,18 +92,6 @@ public class Ball implements I_Parameters
 		VectorY.setEndX(Ball.getCenterX());
 		VectorY.setEndY(Ball.getCenterY()+VyActual);
 	}
-	private void SetVelocityLabel()
-	{
-		LabelVelocityX.setLayoutX(Ball.getCenterX()+10);
-		LabelVelocityX.setLayoutY(Ball.getCenterX()+10);
-		
-		LabelVelocityY.setLayoutX(Ball.getCenterX()+10);
-		LabelVelocityY.setLayoutY(Ball.getCenterX()+20);
-		
-		LabelVelocityX.setText(String.format("%2.2f",VxActual));
-		LabelVelocityY.setText(String.format("%2.2f",VyActual));
-		
-	}
 
 	private void MoveBall()
 	{		
@@ -122,8 +106,6 @@ public class Ball implements I_Parameters
 		{
 			SetVectors();
 		}
-		//setCollisionPoint(0, 0);
-
 	}
 	public void setCollisionPoint(double _x, double _y)
 	{

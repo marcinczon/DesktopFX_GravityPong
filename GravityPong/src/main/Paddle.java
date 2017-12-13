@@ -12,12 +12,20 @@ import javafx.util.Duration;
 
 public class Paddle implements I_Parameters, I_Objects
 {
+//		1  |	 2		| 3
+//	    ___|____________|___
+//  4   ___|____________|___  5
+//	       |            |
+//	    6  |	7    	| 8
+	
+	
 	Timeline TimeLineBall = new Timeline();
 	private int AnimationSpeed=1;
 	
 	private ArrayList<Shape> Nodes = new ArrayList<Shape>();
 	
 	Rectangle Paddle = new Rectangle();
+	
 	private  double PosX, PosY;
 	private  double VxActual=0, VyActual=0;
 	private  double Weight=4;
@@ -30,11 +38,11 @@ public class Paddle implements I_Parameters, I_Objects
 	Paddle_CalculationPositionY paddleCalculationPositionY;
 	
 	//Obiekty dla debugingu
-	double PaddleLimitLeft = Paddle.getLayoutX();
-	double PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
+	double d_PaddleLimitLeft = Paddle.getLayoutX();
+	double d_PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();
 	
-	double PaddleLimitUp = Paddle.getLayoutY();
-	double PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+	double d_PaddleLimitUp = Paddle.getLayoutY();
+	double d_PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
 	
 	//Wektory prêdkoœci
 	private Line VectorX = new Line();
@@ -94,30 +102,30 @@ public class Paddle implements I_Parameters, I_Objects
 	{
 		//Limity do debuggingu
 		
-		PaddleLimitLeft = Paddle.getLayoutX();
-		PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();		
-		PaddleLimitUp = Paddle.getLayoutY();
-		PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
+		d_PaddleLimitLeft = Paddle.getLayoutX();
+		d_PaddleLimitRight = Paddle.getLayoutX()+Paddle.getWidth();		
+		d_PaddleLimitUp = Paddle.getLayoutY();
+		d_PaddleLimitDown = Paddle.getLayoutY()+Paddle.getHeight();
 		
-		LimitLeft.setStartX(PaddleLimitLeft);
-		LimitLeft.setEndX(PaddleLimitLeft);
-		LimitLeft.setStartY(0);
-		LimitLeft.setEndY(primaryScene.getHeight());
+		Line_LimitLeft.setStartX(d_PaddleLimitLeft);
+		Line_LimitLeft.setEndX(d_PaddleLimitLeft);
+		Line_LimitLeft.setStartY(0);
+		Line_LimitLeft.setEndY(primaryScene.getHeight());
 		
-		LimitRight.setStartX(PaddleLimitRight);
-		LimitRight.setEndX(PaddleLimitRight);
-		LimitRight.setStartY(0);
-		LimitRight.setEndY(primaryScene.getHeight());
+		Line_LimitRight.setStartX(d_PaddleLimitRight);
+		Line_LimitRight.setEndX(d_PaddleLimitRight);
+		Line_LimitRight.setStartY(0);
+		Line_LimitRight.setEndY(primaryScene.getHeight());
 		
-		LimitUp.setStartX(0);
-		LimitUp.setEndX(primaryScene.getWidth());
-		LimitUp.setStartY(PaddleLimitUp);
-		LimitUp.setEndY(PaddleLimitUp);
+		Line_LimitUp.setStartX(0);
+		Line_LimitUp.setEndX(primaryScene.getWidth());
+		Line_LimitUp.setStartY(d_PaddleLimitUp);
+		Line_LimitUp.setEndY(d_PaddleLimitUp);
 		
-		LimitDown.setStartX(0);
-		LimitDown.setEndX(primaryScene.getWidth());
-		LimitDown.setStartY(PaddleLimitDown);
-		LimitDown.setEndY(PaddleLimitDown);
+		Line_LimitDown.setStartX(0);
+		Line_LimitDown.setEndX(primaryScene.getWidth());
+		Line_LimitDown.setStartY(d_PaddleLimitDown);
+		Line_LimitDown.setEndY(d_PaddleLimitDown);
 		
 //		1  |	 2		| 3
 //		___|____________|___
@@ -125,45 +133,45 @@ public class Paddle implements I_Parameters, I_Objects
 //		   |            |
 //		6  |	7    	| 8
 		
-		ZoneRectangle_1.setLayoutX(0);
-		ZoneRectangle_1.setLayoutY(0);
-		ZoneRectangle_1.setWidth(PaddleLimitLeft);
-		ZoneRectangle_1.setHeight(PaddleLimitUp);		
+		Rectangle_Zone_1.setLayoutX(0);
+		Rectangle_Zone_1.setLayoutY(0);
+		Rectangle_Zone_1.setWidth(d_PaddleLimitLeft);
+		Rectangle_Zone_1.setHeight(d_PaddleLimitUp);		
 		
-		ZoneRectangle_2.setLayoutX(PaddleLimitLeft);
-		ZoneRectangle_2.setLayoutY(0);
-		ZoneRectangle_2.setWidth(getPaddleWidth());
-		ZoneRectangle_2.setHeight(PaddleLimitUp);
+		Rectangle_Zone_2.setLayoutX(d_PaddleLimitLeft);
+		Rectangle_Zone_2.setLayoutY(0);
+		Rectangle_Zone_2.setWidth(getPaddleWidth());
+		Rectangle_Zone_2.setHeight(d_PaddleLimitUp);
 		
-		ZoneRectangle_3.setLayoutX(PaddleLimitRight);
-		ZoneRectangle_3.setLayoutY(0);
-		ZoneRectangle_3.setWidth(primaryScene.getWidth());
-		ZoneRectangle_3.setHeight(PaddleLimitUp);
+		Rectangle_Zone_3.setLayoutX(d_PaddleLimitRight);
+		Rectangle_Zone_3.setLayoutY(0);
+		Rectangle_Zone_3.setWidth(primaryScene.getWidth());
+		Rectangle_Zone_3.setHeight(d_PaddleLimitUp);
 		
-		ZoneRectangle_4.setLayoutX(0);
-		ZoneRectangle_4.setLayoutY(PaddleLimitUp);
-		ZoneRectangle_4.setWidth(PaddleLimitLeft);
-		ZoneRectangle_4.setHeight(getPaddleHeigh());
+		Rectangle_Zone_4.setLayoutX(0);
+		Rectangle_Zone_4.setLayoutY(d_PaddleLimitUp);
+		Rectangle_Zone_4.setWidth(d_PaddleLimitLeft);
+		Rectangle_Zone_4.setHeight(getPaddleHeigh());
 		
-		ZoneRectangle_5.setLayoutX(getPosX()+getPaddleWidth());
-		ZoneRectangle_5.setLayoutY(PaddleLimitUp);
-		ZoneRectangle_5.setWidth(primaryScene.getWidth());
-		ZoneRectangle_5.setHeight(getPaddleHeigh());
+		Rectangle_Zone_5.setLayoutX(getPosX()+getPaddleWidth());
+		Rectangle_Zone_5.setLayoutY(d_PaddleLimitUp);
+		Rectangle_Zone_5.setWidth(primaryScene.getWidth());
+		Rectangle_Zone_5.setHeight(getPaddleHeigh());
 
-		ZoneRectangle_6.setLayoutX(0);
-		ZoneRectangle_6.setLayoutY(PaddleLimitDown);
-		ZoneRectangle_6.setWidth(PaddleLimitLeft);
-		ZoneRectangle_6.setHeight(primaryScene.getHeight());
+		Rectangle_Zone_6.setLayoutX(0);
+		Rectangle_Zone_6.setLayoutY(d_PaddleLimitDown);
+		Rectangle_Zone_6.setWidth(d_PaddleLimitLeft);
+		Rectangle_Zone_6.setHeight(primaryScene.getHeight());
 		
-		ZoneRectangle_7.setLayoutX(PaddleLimitLeft);
-		ZoneRectangle_7.setLayoutY(PaddleLimitDown);
-		ZoneRectangle_7.setWidth(getPaddleWidth());
-		ZoneRectangle_7.setHeight(primaryScene.getHeight());
+		Rectangle_Zone_7.setLayoutX(d_PaddleLimitLeft);
+		Rectangle_Zone_7.setLayoutY(d_PaddleLimitDown);
+		Rectangle_Zone_7.setWidth(getPaddleWidth());
+		Rectangle_Zone_7.setHeight(primaryScene.getHeight());
 		
-		ZoneRectangle_8.setLayoutX(PaddleLimitRight);
-		ZoneRectangle_8.setLayoutY(PaddleLimitDown);
-		ZoneRectangle_8.setWidth(primaryScene.getWidth());
-		ZoneRectangle_8.setHeight(primaryScene.getHeight());		
+		Rectangle_Zone_8.setLayoutX(d_PaddleLimitRight);
+		Rectangle_Zone_8.setLayoutY(d_PaddleLimitDown);
+		Rectangle_Zone_8.setWidth(primaryScene.getWidth());
+		Rectangle_Zone_8.setHeight(primaryScene.getHeight());		
 
 	}
 	private void SetVectors()
@@ -259,21 +267,21 @@ public class Paddle implements I_Parameters, I_Objects
 	public ArrayList<Shape> getNodes()
 	{
 		Nodes.add(Paddle);
-		Nodes.add(LimitLeft);		
-		Nodes.add(LimitRight);
-		Nodes.add(LimitUp);
-		Nodes.add(LimitDown);
+		Nodes.add(Line_LimitLeft);		
+		Nodes.add(Line_LimitRight);
+		Nodes.add(Line_LimitUp);
+		Nodes.add(Line_LimitDown);
 		Nodes.add(VectorX);
 		Nodes.add(VectorY);
 		
-		Nodes.add(ZoneRectangle_1);
-		Nodes.add(ZoneRectangle_2);
-		Nodes.add(ZoneRectangle_3);
-		Nodes.add(ZoneRectangle_4);
-		Nodes.add(ZoneRectangle_5);
-		Nodes.add(ZoneRectangle_6);
-		Nodes.add(ZoneRectangle_7);
-		Nodes.add(ZoneRectangle_8);
+		Nodes.add(Rectangle_Zone_1);
+		Nodes.add(Rectangle_Zone_2);
+		Nodes.add(Rectangle_Zone_3);
+		Nodes.add(Rectangle_Zone_4);
+		Nodes.add(Rectangle_Zone_5);
+		Nodes.add(Rectangle_Zone_6);
+		Nodes.add(Rectangle_Zone_7);
+		Nodes.add(Rectangle_Zone_8);
 		return Nodes;
 	}
 

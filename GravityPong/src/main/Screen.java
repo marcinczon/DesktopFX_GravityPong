@@ -48,7 +48,9 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 	{
 		// Utworzenie w¹tku
 		LocalThread = new Thread(this, ThreadName);
+		
 		primaryPane.setPrefSize(primaryScene.getWidth(), primaryScene.getHeight());
+		
 		ActualVelocityLabel.setLayoutX(10);
 		ActualVelocityLabel.setLayoutY(30);
 		primaryPane.getChildren().add(ActualVelocityLabel);
@@ -58,16 +60,9 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 		// Test
 		CreateTestsBalls();
 		RunEvents();
-		start();
+		this.start();
+
 		paddleZone_Thread.Start();
-		collisions_Thread.start();
-		
-
-		// TimeLineScreen = new Timeline(new KeyFrame(Duration.millis(1), ae ->
-		// CollisionBallsDetection_3()));
-		// TimeLineScreen.setCycleCount(Animation.INDEFINITE);
-		// TimeLineScreen.play();
-
 	}
 
 	private void CreateTestsBalls()
@@ -87,7 +82,7 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 			synchronized (this)
 			{
 				//CollisionBallsDetection_3();
-				Collisions_Detection.CollisionBallsDetection_3();
+				Collisions_Detection.Collision_Detection_3();
 			}
 			try
 			{

@@ -14,12 +14,12 @@ public interface I_Parameters
     static boolean ShowVectors=false;
     
 	// Paddle
-    static double PaddleWidth=150;
+    static double PaddleWidth=250;
     static double PaddleHeight=20;
     
 	static double PaddlePositivAccelerationY = -70;
 	static double PaddleNegativAccelerationY = 40;
-	static double PaddleAccelerationX=5;
+	static double PaddleAccelerationX=10;
 	
 	static double PaddleControlLeftVelocity = -50;
 	static double PaddleControllRightVelocity = 50;

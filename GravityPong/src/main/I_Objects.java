@@ -25,10 +25,10 @@ public interface I_Objects
 	// Obiekty do Paddle
 	
 	Paddle primaryPaddle = new Paddle();
-	Line LimitLeft = new Line();
-	Line LimitRight = new Line();
-	Line LimitUp = new Line();
-	Line LimitDown = new Line();
+	Line Line_LimitLeft = new Line();
+	Line Line_LimitRight = new Line();
+	Line Line_LimitUp = new Line();
+	Line Line_LimitDown = new Line();
 	
 	// Do testów dwie pilki statyczne nie dodane do listy obiektow
 	
@@ -45,25 +45,26 @@ public interface I_Objects
 	// Obiekty do sprawdzania zderzen
 	
 	// Wielu pi³ek
+	
 	ArrayList<Shape> CollisionShapes = new ArrayList<Shape>();	
 	
 	// Dwoch testowych
+	
 	PaddleZone_Thread paddleZone_Thread = new PaddleZone_Thread();
-	Collisions_Thread collisions_Thread = new Collisions_Thread();
+
 	
 	// Obiekty przechowuj¹ce bity (POLA BITOWE)
+	
 	PaddleZone_Bits paddleZone_Bits = new PaddleZone_Bits();
-	Collisions_Bits collisions_Bits = new Collisions_Bits();
-//	
-	Rectangle ZoneRectangle_1 = new Rectangle();
-	Rectangle ZoneRectangle_2 = new Rectangle();
-	Rectangle ZoneRectangle_3 = new Rectangle();
-	Rectangle ZoneRectangle_4 = new Rectangle();
-	Rectangle ZoneRectangle_5 = new Rectangle();
-	Rectangle ZoneRectangle_6 = new Rectangle();
-	Rectangle ZoneRectangle_7 = new Rectangle();
-	Rectangle ZoneRectangle_8 = new Rectangle();
-//	
+	Rectangle Rectangle_Zone_1 = new Rectangle();
+	Rectangle Rectangle_Zone_2 = new Rectangle();
+	Rectangle Rectangle_Zone_3 = new Rectangle();
+	Rectangle Rectangle_Zone_4 = new Rectangle();
+	Rectangle Rectangle_Zone_5 = new Rectangle();
+	Rectangle Rectangle_Zone_6 = new Rectangle();
+	Rectangle Rectangle_Zone_7 = new Rectangle();
+	Rectangle Rectangle_Zone_8 = new Rectangle();
+	
 	// Liczby losowe
 	
 	Random Random = new Random();
