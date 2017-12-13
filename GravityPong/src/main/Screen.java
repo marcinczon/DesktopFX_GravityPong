@@ -87,7 +87,7 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 			synchronized (this)
 			{
 				//CollisionBallsDetection_3();
-				Collision_Detection.CollisionBallsDetection_3();
+				Collisions_Detection.CollisionBallsDetection_3();
 			}
 			try
 			{

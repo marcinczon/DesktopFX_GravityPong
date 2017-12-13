@@ -3,7 +3,7 @@ package main;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-public class Collision_Detection implements I_Objects, I_Parameters
+public class Collisions_Detection implements I_Objects, I_Parameters
 {
 	
 	//Zabezpiecznie przed wielokrotnym powtorzeniem
