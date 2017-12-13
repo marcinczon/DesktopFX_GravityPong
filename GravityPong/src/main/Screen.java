@@ -82,7 +82,6 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 		{
 			synchronized (this)
 			{
-				//CollisionBallsDetection_3();
 				Collisions_Detection.Collision_Detection_3();
 			}
 			try
@@ -98,8 +97,7 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 	}
 	public void start()
 	{
-		LocalThread.start();			
-
+		LocalThread.start();
 	}
 
 	
@@ -109,13 +107,11 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 	
 	public void RunEvents()
 	{
-
 		primaryScene.setOnKeyPressed(new EventHandler<KeyEvent>()
 		{
-
 			@Override
 			public void handle(KeyEvent keyEvent)
-			{				
+			{
 				switch (keyEvent.getCode())
 				{
 				case W:
@@ -131,15 +127,9 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 					primaryPaddle.setVxActual(PaddleControllRightVelocity);
 					break;
 				}
-				
 			}
-	
 		});
-
-
-		
-		
-	}	
+	}
 
 //	***************
 //	Getery i Setery

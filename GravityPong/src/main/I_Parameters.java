@@ -3,6 +3,7 @@ package main;
 public interface I_Parameters
 {
 	// General
+	static boolean Mode_1=true; // Tryb dwoch pi³ek albo wielu
 	static int AnimationSpeed = 1; // Do parametru Sleep w w¹tkach
 	static double t = 0.05; // Do obliczeñ fizycznych
 	static double G = 9.8; // Grawitacja ziemska
@@ -32,18 +33,19 @@ public interface I_Parameters
 	
 	// Balls
 	
-	static int    BallSleepTimeAxiesThread = 1;
-	
+	static int    BallSleepTimeAxiesThread = 1;	
 	
 	//Screen
+	
 	static int    ScreenSleepTimeThread = 1;
 	static int    initScreenHeight=800;
-	static int    initScreenWidth=800;
-	
+	static int    initScreenWidth=800;	
 	
 	//Zones
 	
 	static boolean ShowZoneActive=false;
+	
+	//
 	
 	
 }
