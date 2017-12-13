@@ -1,6 +1,6 @@
 package main;
 
-public class BallCalculationPositionY implements Runnable , Parameters, Objects
+public class Ball_CalculationPositionY implements Runnable , I_Parameters, I_Objects
 {
 	private  double t=0.05;
 	private  double deltaSy=0, Vy0=0,Vy1=0,VyLost=1,g=9.8;
@@ -16,7 +16,7 @@ public class BallCalculationPositionY implements Runnable , Parameters, Objects
 	private Ball ball;
 	
 	
-	public BallCalculationPositionY(Ball ball,double Vy0,double Radius, String ThreadName)
+	public Ball_CalculationPositionY(Ball ball,double Vy0,double Radius, String ThreadName)
 	{
 		this.ball=ball;
 		this.ThreadName=ThreadName;

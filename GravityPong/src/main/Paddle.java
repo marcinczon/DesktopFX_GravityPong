@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
-public class Paddle implements Parameters, Objects
+public class Paddle implements I_Parameters, I_Objects
 {
 	Timeline TimeLineBall = new Timeline();
 	private int AnimationSpeed=1;
@@ -26,8 +26,8 @@ public class Paddle implements Parameters, Objects
 	private  double PaddleCenterX=Paddle.getLayoutX()+PaddleWidth/2;
 	private  double PaddleCenterY=Paddle.getLayoutY()+PaddleHeight/2;
 	
-	PaddleCalculationPositionX paddleCalculationPositionX;
-	PaddleCalculationPositionY paddleCalculationPositionY;
+	Paddle_CalculationPositionX paddleCalculationPositionX;
+	Paddle_CalculationPositionY paddleCalculationPositionY;
 	
 	//Obiekty dla debugingu
 	double PaddleLimitLeft = Paddle.getLayoutX();
@@ -53,8 +53,8 @@ public class Paddle implements Parameters, Objects
 		PosY=Paddle.getLayoutY();				
 
 		
-		paddleCalculationPositionX = new PaddleCalculationPositionX(this, "Paddle Axis X");
-		paddleCalculationPositionY = new PaddleCalculationPositionY(this, "Paddle Axis Y");
+		paddleCalculationPositionX = new Paddle_CalculationPositionX(this, "Paddle Axis X");
+		paddleCalculationPositionY = new Paddle_CalculationPositionY(this, "Paddle Axis Y");
 		
 		paddleCalculationPositionX.start();
 		paddleCalculationPositionY.start();

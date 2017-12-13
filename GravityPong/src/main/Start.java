@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 //***
 
 
-public class Start extends Application implements Objects
+public class Start extends Application implements I_Objects
 {
 	Screen _Screen = new Screen();
 	public static void main(String[] args)

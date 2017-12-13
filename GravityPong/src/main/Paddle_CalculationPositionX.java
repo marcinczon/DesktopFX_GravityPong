@@ -1,6 +1,6 @@
 package main;
 
-public class PaddleCalculationPositionX implements Runnable, Parameters
+public class Paddle_CalculationPositionX implements Runnable, I_Parameters
 {
 	private  double PosX;
 	private  double deltaSx=0,Vx0=0;
@@ -18,7 +18,7 @@ public class PaddleCalculationPositionX implements Runnable, Parameters
 	private String ThreadName;
 	Thread LocalThread;
 	
-	public PaddleCalculationPositionX(Paddle paddle, String ThreadName)
+	public Paddle_CalculationPositionX(Paddle paddle, String ThreadName)
 	{
 		this.ThreadName=ThreadName;
 		this.paddle=paddle;

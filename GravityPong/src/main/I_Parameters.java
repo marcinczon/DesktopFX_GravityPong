@@ -1,6 +1,6 @@
 package main;
 
-public interface Parameters
+public interface I_Parameters
 {
 	// General
 	static int AnimationSpeed = 1; // Do parametru Sleep w w¹tkach

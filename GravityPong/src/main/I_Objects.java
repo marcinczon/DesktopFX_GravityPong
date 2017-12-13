@@ -14,7 +14,7 @@ import javafx.scene.shape.Shape;
 
 //Wszystkie obiekty w Interfejsach sa static bez modyfikatora
 
-public interface Objects
+public interface I_Objects
 {
 	// Obiekty JavaFx
 	
@@ -22,28 +22,38 @@ public interface Objects
 	Scene primaryScene = new Scene(primaryPane,800,800);
 	
 	
+	// Obiekty do Paddle
+	
+	Paddle primaryPaddle = new Paddle();
+	Line LimitLeft = new Line();
+	Line LimitRight = new Line();
+	Line LimitUp = new Line();
+	Line LimitDown = new Line();
+	
 	// Do testów dwie pilki statyczne nie dodane do listy obiektow
 	
 	Ball TestBall_1 = new Ball(0,0,30,Color.CHARTREUSE);
 	Ball TestBall_2 = new Ball(400,400,50,Color.BLUE);
 	
-	Paddle primaryPaddle = new Paddle();
+	// Tworzenie tablicy pi³ek
 	
+	int NumbersOfBalls = 3;
 	ArrayList<Ball> Balls = new ArrayList<Ball>();
 	Circle CollisionPoint = new Circle();
-	int NumbersOfBalls = 3;
-	
-	ArrayList<Shape> CollisionShapes = new ArrayList<Shape>();
-	
-	CheckBallZone checkBallZone = new CheckBallZone();
 	
 	
-	Random Random = new Random();
+	// Obiekty do sprawdzania zderzen
 	
-	Line LimitLeft = new Line();
-	Line LimitRight = new Line();
-	Line LimitUp = new Line();
-	Line LimitDown = new Line();
+	// Wielu pi³ek
+	ArrayList<Shape> CollisionShapes = new ArrayList<Shape>();	
+	
+	// Dwoch testowych
+	ZoneBall_Thread checkBallZone = new ZoneBall_Thread();
+	Collisions_Thread collisions = new Collisions_Thread();
+	
+	// Obiekty przechowuj¹ce bity (POLA BITOWE)
+	ZonesBall_Bits zonesBit = new ZonesBall_Bits();
+	Collisions_Bits collisionsBits = new Collisions_Bits();
 	
 	Rectangle ZoneRectangle_1 = new Rectangle();
 	Rectangle ZoneRectangle_2 = new Rectangle();
@@ -54,5 +64,10 @@ public interface Objects
 	Rectangle ZoneRectangle_7 = new Rectangle();
 	Rectangle ZoneRectangle_8 = new Rectangle();
 	
-	Zones zones = new Zones();
+	// Liczby losowe
+	
+	Random Random = new Random();
+	
+
+	
 }

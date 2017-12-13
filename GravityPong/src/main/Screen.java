@@ -25,7 +25,7 @@ import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Screen implements Runnable , Parameters, Objects
+public class Screen implements Runnable , I_Parameters, I_Objects
 {	
 	
 //	********************************************************************************
@@ -60,6 +60,8 @@ public class Screen implements Runnable , Parameters, Objects
 		RunEvents();
 		start();
 		checkBallZone.Start();
+		collisions.start();
+		
 
 		// TimeLineScreen = new Timeline(new KeyFrame(Duration.millis(1), ae ->
 		// CollisionBallsDetection_3()));
@@ -85,7 +87,7 @@ public class Screen implements Runnable , Parameters, Objects
 			synchronized (this)
 			{
 				//CollisionBallsDetection_3();
-				CollisionDetection.CollisionBallsDetection_3();
+				Collision_Detection.CollisionBallsDetection_3();
 			}
 			try
 			{

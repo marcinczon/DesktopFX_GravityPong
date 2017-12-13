@@ -15,7 +15,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
-public class Ball implements Parameters
+public class Ball implements I_Parameters
 {
 	public static int BallCounter=0;
 	public int BallNummer=0;
@@ -39,8 +39,8 @@ public class Ball implements Parameters
 
 	
 	// Obliczenia wielow¹tkowe
-	BallCalculationPositionX ballCalculationPositionX;
-	BallCalculationPositionY ballCalculationPositionY;
+	Ball_CalculationPositionX ballCalculationPositionX;
+	Ball_CalculationPositionY ballCalculationPositionY;
 
 	
 	public Ball(double X, double Y, double Weight, Color _Color)
@@ -64,8 +64,8 @@ public class Ball implements Parameters
 		VyActual=(double)_random.nextInt(5)-10;
 		
 		//Utworzenie funkcji watkowych do obliczania po³o¿enia		
-		ballCalculationPositionX = new BallCalculationPositionX(this,VxActual,"  Axis X ");
-		ballCalculationPositionY = new BallCalculationPositionY(this,VyActual,Weight,"  Axis Y ");
+		ballCalculationPositionX = new Ball_CalculationPositionX(this,VxActual,"  Axis X ");
+		ballCalculationPositionY = new Ball_CalculationPositionY(this,VyActual,Weight,"  Axis Y ");
 		ballCalculationPositionX.start();
 		ballCalculationPositionY.start();
 		

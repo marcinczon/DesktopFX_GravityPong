@@ -3,7 +3,7 @@ package main;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-public class CollisionDetection implements Objects
+public class Collision_Detection implements I_Objects, I_Parameters
 {
 	
 	//Zabezpiecznie przed wielokrotnym powtorzeniem
@@ -11,6 +11,15 @@ public class CollisionDetection implements Objects
 	static boolean loopTrigger_2=false;
 	static boolean loopTrigger_3=false;
 	
+	public static void NoIntersects()
+	{
+		// Nie dzia³a
+		// ma rejon 2 i zderza siê z cofnij do lini górnej
+		if (collisionsBits.isIntersects_2() && zonesBit.isIntersects_2())
+		{
+			TestBall_1.setPositionX(primaryPaddle.PaddleLimitUp);
+		}
+	}
 	public static void CreateCollisionDetectObjects()
 	{
 		// *********************************************** //
@@ -226,8 +235,8 @@ public class CollisionDetection implements Objects
 		// Rownania dla odpowiednich zderzeñ
 
 		
-		if ((zones.isIntersects_4() && (zones.isIntersects_1() || zones.isIntersects_6()))
-				|| (zones.isIntersects_5() && (zones.isIntersects_3() || zones.isIntersects_8())))
+		if ((zonesBit.isIntersects_4() && (zonesBit.isIntersects_1() || zonesBit.isIntersects_6()))
+				|| (zonesBit.isIntersects_5() && (zonesBit.isIntersects_3() || zonesBit.isIntersects_8())))
 		{
 			System.out.println("Warunek 1");
 			if (Vx1 > 0 && Vx2 > 0)
@@ -250,6 +259,7 @@ public class CollisionDetection implements Objects
 		_Ball.setVyActual(Vy1);
 		_Paddle.setVyActual(Vy2);
 
+		//NoIntersects();
 	}
 }
 //	public void CalculateAngelAndPointOfCollision()
