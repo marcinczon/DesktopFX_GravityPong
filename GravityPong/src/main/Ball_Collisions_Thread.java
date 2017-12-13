@@ -14,7 +14,7 @@ public class Ball_Collisions_Thread implements Runnable, I_Objects, I_Parameters
 	// Sprawdzanie zderzenia dla ka¿dej pi³ki utworzona WEWNATRZ NIEJ!
 	// Kazda pi³ka nas³uchuje czy nast¹pi³o zderzenie
 	
-	Thread LocalThread = new Thread(this, "Collisions_Thread");
+	Thread LocalThread;
 	
 	Ball_Collisions_Bits collisions_Bits = new Ball_Collisions_Bits();
 	
@@ -31,6 +31,8 @@ public class Ball_Collisions_Thread implements Runnable, I_Objects, I_Parameters
 	public Ball_Collisions_Thread(Ball ball)
 	{
 		this.ball=ball;
+		LocalThread = new Thread(this, "Collisions_Thread");
+		LocalThread.setDaemon(true);
 	}
 	private void Check()
 	{	

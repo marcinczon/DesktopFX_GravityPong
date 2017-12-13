@@ -24,6 +24,7 @@ public class Paddle_CalculationPositionX implements Runnable, I_Parameters
 		this.paddle=paddle;
 		
 		LocalThread = new Thread(this,this.ThreadName);
+		LocalThread.setDaemon(true);
 	}
 	private void calculationPhisicsX()
 	{

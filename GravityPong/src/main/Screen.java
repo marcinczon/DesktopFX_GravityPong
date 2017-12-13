@@ -48,6 +48,7 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 	{
 		// Utworzenie w¹tku
 		LocalThread = new Thread(this, ThreadName);
+		LocalThread.setDaemon(true);
 		
 		primaryPane.setPrefSize(primaryScene.getWidth(), primaryScene.getHeight());
 		

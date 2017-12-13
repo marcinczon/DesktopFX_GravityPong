@@ -9,7 +9,6 @@ public class Ball_CalculationPositionX implements Runnable, I_Parameters, I_Obje
 	//Prêdkoœc która mo¿e byæ pobierana - zabezpieczenie przed pobraniem nie obliczonej do konca predkosci Vx0 z w¹tku
 	private  double  VxActual=0;
 	private  double  PositionXActual=0;
-	private  boolean VxReaded=true; //Flaga - czy predkoœæ zosta³a odczytana, wowczas mo¿na obliczyæ nastêpn¹ pozycje
 	
 	private String ThreadName;
 	private Thread LocalThread;	
@@ -23,6 +22,7 @@ public class Ball_CalculationPositionX implements Runnable, I_Parameters, I_Obje
 		this.Vx0=Vx0;
 		
 		LocalThread = new Thread(this, this.ThreadName);
+		LocalThread.setDaemon(true);
 	}
 	private void calculationPhisicsX()
 	{		

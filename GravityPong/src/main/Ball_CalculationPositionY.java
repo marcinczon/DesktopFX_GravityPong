@@ -24,6 +24,7 @@ public class Ball_CalculationPositionY implements Runnable , I_Parameters, I_Obj
 		this.Vy0=Vy0;
 		
 		LocalThread = new Thread(this, this.ThreadName);
+		LocalThread.setDaemon(true);
 	}
 
 	public void calculationPhisicsY()

@@ -6,7 +6,7 @@ import javafx.scene.shape.Shape;
 public class PaddleZone_Thread implements Runnable,I_Objects,I_Parameters
 {
 
-	Thread LocalThread = new Thread(this, "CheckBallZone");
+	Thread LocalThread;
 	Shape collisionShape1;
 	Shape collisionShape2;
 	Shape collisionShape3;
@@ -19,7 +19,8 @@ public class PaddleZone_Thread implements Runnable,I_Objects,I_Parameters
 	
 	public PaddleZone_Thread()
 	{
-	
+		LocalThread = new Thread(this, "CheckBallZone");
+		LocalThread.setDaemon(true);
 	}
 	private void CheckZone()
 	{	
@@ -137,6 +138,7 @@ public class PaddleZone_Thread implements Runnable,I_Objects,I_Parameters
 	public void Start()
 	{
 		LocalThread.start();
+		
 	}
 	
 
