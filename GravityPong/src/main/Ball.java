@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
@@ -39,8 +40,10 @@ public class Ball implements I_Parameters
 
 	
 	// Obliczenia wielow¹tkowe
-	Ball_CalculationPositionX ballCalculationPositionX;
-	Ball_CalculationPositionY ballCalculationPositionY;
+	Ball_CalculationPositionX ball_CalculationPositionX;
+	Ball_CalculationPositionY ball_CalculationPositionY;
+	
+
 
 	
 	public Ball(double X, double Y, double Weight, Color _Color)
@@ -64,10 +67,10 @@ public class Ball implements I_Parameters
 		VyActual=(double)_random.nextInt(5)-10;
 		
 		//Utworzenie funkcji watkowych do obliczania po³o¿enia		
-		ballCalculationPositionX = new Ball_CalculationPositionX(this,VxActual,"  Axis X ");
-		ballCalculationPositionY = new Ball_CalculationPositionY(this,VyActual,Weight,"  Axis Y ");
-		ballCalculationPositionX.start();
-		ballCalculationPositionY.start();
+		ball_CalculationPositionX = new Ball_CalculationPositionX(this,VxActual,"  Axis X ");
+		ball_CalculationPositionY = new Ball_CalculationPositionY(this,VyActual,Weight,"  Axis Y ");
+		ball_CalculationPositionX.start();
+		ball_CalculationPositionY.start();
 		
 	
 		//Utworzenie punktu kolizyjnego z inn¹ pi³k¹
@@ -109,11 +112,11 @@ public class Ball implements I_Parameters
 	private void MoveBall()
 	{		
 		// Zastapione obliczenia przez watek
-		VxActual = ballCalculationPositionX.getVxActual();
-		VyActual = ballCalculationPositionY.getVyActual();
+		VxActual = ball_CalculationPositionX.getVxActual();
+		VyActual = ball_CalculationPositionY.getVyActual();
 
-		Ball.setCenterX(ballCalculationPositionX.getPositionX());
-		Ball.setCenterY(ballCalculationPositionY.getPositionY());
+		Ball.setCenterX(ball_CalculationPositionX.getPositionX());
+		Ball.setCenterY(ball_CalculationPositionY.getPositionY());
 
 		if (ShowVectors)
 		{

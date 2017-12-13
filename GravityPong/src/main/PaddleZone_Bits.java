@@ -1,6 +1,6 @@
 package main;
 
-public class ZonesBall_Bits
+public class PaddleZone_Bits
 {
 	private boolean intersects_1=false;
 	private boolean intersects_2=false;

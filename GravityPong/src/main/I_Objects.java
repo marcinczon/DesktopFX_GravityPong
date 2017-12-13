@@ -48,13 +48,13 @@ public interface I_Objects
 	ArrayList<Shape> CollisionShapes = new ArrayList<Shape>();	
 	
 	// Dwoch testowych
-	ZoneBall_Thread checkBallZone = new ZoneBall_Thread();
-	Collisions_Thread collisions = new Collisions_Thread();
+	PaddleZone_Thread paddleZone_Thread = new PaddleZone_Thread();
+	Collisions_Thread collisions_Thread = new Collisions_Thread();
 	
 	// Obiekty przechowuj¹ce bity (POLA BITOWE)
-	ZonesBall_Bits zonesBit = new ZonesBall_Bits();
-	Collisions_Bits collisionsBits = new Collisions_Bits();
-	
+	PaddleZone_Bits paddleZone_Bits = new PaddleZone_Bits();
+	Collisions_Bits collisions_Bits = new Collisions_Bits();
+//	
 	Rectangle ZoneRectangle_1 = new Rectangle();
 	Rectangle ZoneRectangle_2 = new Rectangle();
 	Rectangle ZoneRectangle_3 = new Rectangle();
@@ -63,7 +63,7 @@ public interface I_Objects
 	Rectangle ZoneRectangle_6 = new Rectangle();
 	Rectangle ZoneRectangle_7 = new Rectangle();
 	Rectangle ZoneRectangle_8 = new Rectangle();
-	
+//	
 	// Liczby losowe
 	
 	Random Random = new Random();

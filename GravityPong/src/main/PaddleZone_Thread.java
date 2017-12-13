@@ -3,7 +3,7 @@ package main;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
+public class PaddleZone_Thread implements Runnable,I_Objects,I_Parameters
 {
 
 	Thread LocalThread = new Thread(this, "CheckBallZone");
@@ -17,7 +17,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 	Shape collisionShape8;
 	
 	
-	public ZoneBall_Thread()
+	public PaddleZone_Thread()
 	{
 	
 	}
@@ -25,25 +25,25 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 	{	
 		
 		collisionShape1 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_1);		
-		zonesBit.setIntersects_1(!collisionShape1.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_1(!collisionShape1.getBoundsInLocal().isEmpty());
 		collisionShape2 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_2);		
-		zonesBit.setIntersects_2(!collisionShape2.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_2(!collisionShape2.getBoundsInLocal().isEmpty());
 		collisionShape3 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_3);		
-		zonesBit.setIntersects_3(!collisionShape3.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_3(!collisionShape3.getBoundsInLocal().isEmpty());
 		collisionShape4 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_4);		
-		zonesBit.setIntersects_4(!collisionShape4.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_4(!collisionShape4.getBoundsInLocal().isEmpty());
 		collisionShape5 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_5);		
-		zonesBit.setIntersects_5(!collisionShape5.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_5(!collisionShape5.getBoundsInLocal().isEmpty());
 		collisionShape6 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_6);		
-		zonesBit.setIntersects_6(!collisionShape6.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_6(!collisionShape6.getBoundsInLocal().isEmpty());
 		collisionShape7 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_7);		
-		zonesBit.setIntersects_7(!collisionShape7.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_7(!collisionShape7.getBoundsInLocal().isEmpty());
 		collisionShape8 = Shape.intersect(TestBall_1.get_ball(), ZoneRectangle_8);		
-		zonesBit.setIntersects_8(!collisionShape8.getBoundsInLocal().isEmpty());
+		paddleZone_Bits.setIntersects_8(!collisionShape8.getBoundsInLocal().isEmpty());
 		
 		if (ShowZoneActive)
 		{
-			if (zonesBit.isIntersects_1())
+			if (paddleZone_Bits.isIntersects_1())
 			{
 				ZoneRectangle_1.setFill(Color.AZURE);
 			} else
@@ -51,7 +51,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_1.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_2())
+			if (paddleZone_Bits.isIntersects_2())
 			{
 				ZoneRectangle_2.setFill(Color.AZURE);
 			} else
@@ -59,7 +59,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_2.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_3())
+			if (paddleZone_Bits.isIntersects_3())
 			{
 				ZoneRectangle_3.setFill(Color.AZURE);
 			} else
@@ -67,7 +67,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_3.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_4())
+			if (paddleZone_Bits.isIntersects_4())
 			{
 				ZoneRectangle_4.setFill(Color.AZURE);
 			} else
@@ -75,7 +75,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_4.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_5())
+			if (paddleZone_Bits.isIntersects_5())
 			{
 				ZoneRectangle_5.setFill(Color.AZURE);
 			} else
@@ -83,7 +83,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_5.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_6())
+			if (paddleZone_Bits.isIntersects_6())
 			{
 				ZoneRectangle_6.setFill(Color.AZURE);
 			} else
@@ -91,7 +91,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_6.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_7())
+			if (paddleZone_Bits.isIntersects_7())
 			{
 				ZoneRectangle_7.setFill(Color.AZURE);
 			} else
@@ -99,7 +99,7 @@ public class ZoneBall_Thread implements Runnable,I_Objects,I_Parameters
 				ZoneRectangle_7.setFill(Color.TRANSPARENT);
 			}
 
-			if (zonesBit.isIntersects_8())
+			if (paddleZone_Bits.isIntersects_8())
 			{
 				ZoneRectangle_8.setFill(Color.AZURE);
 			} else

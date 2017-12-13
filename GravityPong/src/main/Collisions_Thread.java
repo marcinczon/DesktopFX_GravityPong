@@ -13,13 +13,13 @@ public class Collisions_Thread implements Runnable, I_Objects, I_Parameters
 	{	
 		
 		BallsCollisions = Shape.intersect(TestBall_1.get_ball(),TestBall_2.get_ball());		
-		collisionsBits.setIntersects_1(!BallsCollisions.getBoundsInLocal().isEmpty());
+		collisions_Bits.setIntersects_1(!BallsCollisions.getBoundsInLocal().isEmpty());
 		
 		PaddleWithBall_1 = Shape.intersect(TestBall_1.get_ball(),primaryPaddle.getPaddle());		
-		collisionsBits.setIntersects_2(!PaddleWithBall_1.getBoundsInLocal().isEmpty());
+		collisions_Bits.setIntersects_2(!PaddleWithBall_1.getBoundsInLocal().isEmpty());
 		
 		PaddleWithBall_2 = Shape.intersect(TestBall_2.get_ball(),primaryPaddle.getPaddle());		
-		collisionsBits.setIntersects_3(!PaddleWithBall_2.getBoundsInLocal().isEmpty());
+		collisions_Bits.setIntersects_3(!PaddleWithBall_2.getBoundsInLocal().isEmpty());
 		
 	}
 

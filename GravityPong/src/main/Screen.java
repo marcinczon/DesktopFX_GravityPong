@@ -59,8 +59,8 @@ public class Screen implements Runnable , I_Parameters, I_Objects
 		CreateTestsBalls();
 		RunEvents();
 		start();
-		checkBallZone.Start();
-		collisions.start();
+		paddleZone_Thread.Start();
+		collisions_Thread.start();
 		
 
 		// TimeLineScreen = new Timeline(new KeyFrame(Duration.millis(1), ae ->

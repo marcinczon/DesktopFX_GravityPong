@@ -15,7 +15,7 @@ public class Collisions_Detection implements I_Objects, I_Parameters
 	{
 		// Nie dzia³a
 		// ma rejon 2 i zderza siê z cofnij do lini górnej
-		if (collisionsBits.isIntersects_2() && zonesBit.isIntersects_2())
+		if (collisions_Bits.isIntersects_2() && paddleZone_Bits.isIntersects_2())
 		{
 			TestBall_1.setPositionX(primaryPaddle.PaddleLimitUp);
 		}
@@ -235,8 +235,8 @@ public class Collisions_Detection implements I_Objects, I_Parameters
 		// Rownania dla odpowiednich zderzeñ
 
 		
-		if ((zonesBit.isIntersects_4() && (zonesBit.isIntersects_1() || zonesBit.isIntersects_6()))
-				|| (zonesBit.isIntersects_5() && (zonesBit.isIntersects_3() || zonesBit.isIntersects_8())))
+		if ((paddleZone_Bits.isIntersects_4() && (paddleZone_Bits.isIntersects_1() || paddleZone_Bits.isIntersects_6()))
+				|| (paddleZone_Bits.isIntersects_5() && (paddleZone_Bits.isIntersects_3() || paddleZone_Bits.isIntersects_8())))
 		{
 			System.out.println("Warunek 1");
 			if (Vx1 > 0 && Vx2 > 0)
